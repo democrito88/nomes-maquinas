@@ -1,0 +1,30 @@
+.conteudo{
+  padding: 5%;
+}
+
+.conteudo__titulo{
+  text-align: center;
+}
+
+.formulario{
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  gap: 2rem;
+}
+
+.resultado{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+@media (min-width: 1000px) {
+  .formulario{
+    padding: 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
