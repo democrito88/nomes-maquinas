@@ -1,7 +1,8 @@
 import {useEffect, useState} from "react";
 import './App.css';
-import { Button, Form } from "react-bootstrap";
+import { Button, Container, Form } from "react-bootstrap";
 import CopyToClipboardButton from "./Components/CopyToClipboardButton";
+import TabelaComputadores from "./Components/TabelaComputadores";
 import axios from 'axios';
 
 function App() {
@@ -13,13 +14,15 @@ function App() {
   const [classe, setClasse] = useState("PC");
   const [propriedade, setPropriedade] = useState(1);
   const [numero, setNumero] = useState(0);
+  const [computadores, setComputadores] = useState([]);
+  const localhost = 'localhost';
 
   useEffect(() => {
-    fetch('http://192.168.11.131:3000/json/secretarias.json')
+    fetch(`http://${localhost}:3000/json/secretarias.json`)
     .then(resposta => resposta.json())
     .then(dados => setSecretarias(dados));
 
-    fetch('http://192.168.11.131:3000/json/setores.json')
+    fetch(`http://${localhost}:3000/json/setores.json`)
     .then(resposta => resposta.json())
     .then(dados => setTodosSetores(dados));
   }, []);
@@ -48,8 +51,18 @@ function App() {
 
   const sendNome = () => {
     let nome = document.getElementById("nome").innerHTML;
-    const resposta = axios.get('http://192.168.11.131:3001/', {nome: nome})
-    .then(data => console.log(data))
+    axios.post(`http://${localhost}:3001/`, {
+      nome: nome,
+      secretaria: secretariaSelecionada,
+      setor: setorSelecionado,
+      classe: classe,
+      propriedade: propriedade,
+      numero: numero
+    })
+    .then(data => {
+      console.log(data);
+      setComputadores(arrayAnterior => [...arrayAnterior, data.data]);
+    })
     .catch(error => console.error(error));
   }
 
@@ -87,6 +100,9 @@ function App() {
         <CopyToClipboardButton textToCopy={`S${secretariaSelecionada}S${setorSelecionado}${classe}${propriedade}N${numero}`} />
         <Button onClick={sendNome}>Enviar</Button>
       </main>
+      <Container>
+        <TabelaComputadores computadores={computadores}/>
+      </Container>
     </div>
   );
 }
