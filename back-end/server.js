@@ -18,6 +18,24 @@ const corsOptions = {
 
 app.use(cors(corsOptions), bodyParser.json());
 
+//Alimentar a database
+db.run(` 
+  INSERT INTO secretarias (nome, sigla) VALUES
+    ('Secretaria da Fazenda', 'SEFAZ');
+    `);
+
+db.run(`
+  INSERT INTO setores (nome, sigla, secretaria_id) VALUES
+    ('Gabinete', 'Gabinete', 1);
+`);
+ 
+db.run(`
+  INSERT INTO computadores (nome, classe, numero, mac, ip, sn, teclado_sn, mouse_sn, secretaria_id, setor_id) VALUES
+    ('S1S1PC1N1', 'PC', 1, '1a2b3c4d', '192.168.10.1', '?????????', '????', '?????', 1, 1);
+`);
+// Fim de alimentação de database
+
+
 // Para requisições GET
 app.get('*', (req, res) => {
   res.json({computador: {nome: req.query}});
