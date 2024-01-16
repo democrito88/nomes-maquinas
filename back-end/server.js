@@ -43,6 +43,13 @@ app.get('*', (req, res) => {
 
 // Para requisições POSt
 app.post(`*`, (req, res) => {
+  console.log(req.body);
+  let formData = req.body;
+
+  db.run(`INSERT INTO computadores ('nome', 'secretaria_id', 'setor_id', 'classe', 'numero', 'mac', 'ip', 'sn', 'teclado_sn', 'mouse_sn') 
+  VALUES('${formData.nome}', '${formData.secretaria_id}', '${formData.setor_id}', '${formData.classe}', '${formData.numero}', '${formData.mac}', 
+  '${formData.ip}', '${formData.sn}', '${formData.teclado_sn}', '${formData.mouse_sn}')`);
+
   db.all(`SELECT computadores.nome, secretarias.nome, setores.nome, computadores.classe, computadores.numero 
   FROM computadores
   JOIN secretarias ON secretarias.id = computadores.secretarias_id,

@@ -49,15 +49,22 @@ function App() {
     setNumero(e.target.value);
   }
 
-  const sendNome = () => {
+  const enviar = (e) => {
+    e.preventDefault();
+    let formData = new FormData(e.target);
     let nome = document.getElementById("nome").innerHTML;
     axios.post(`http://${localhost}:3001/`, {
       nome: nome,
-      secretaria: secretariaSelecionada,
-      setor: setorSelecionado,
-      classe: classe,
-      propriedade: propriedade,
-      numero: numero
+      secretaria_id: formData.get('secretaria_id'),
+      setor_id: formData.get('setor_id'),
+      classe: formData.get('classe'),
+      numero: formData.get('numero'),
+      mac: formData.get('mac'),
+      ip: formData.get('ip'),
+      propriedade: formData.get('propriedade'),
+      sn: formData.get('sn'),
+      teclado_sn: formData.get('teclado_sn'),
+      mouse_sn: formData.get('mouse_sn')
     })
     .then(data => {
       console.log(data);
@@ -70,15 +77,15 @@ function App() {
     <div className="App">
       <main className="conteudo">
         <h2 className="conteudo__titulo">gerador de nomes de computadores</h2>
-        <form className="formulario">
-          <Form.Select onChange={handleSecretaria}>
+        <Form className="formulario" onSubmit={enviar}>
+          <Form.Select name="secretaria_id" onChange={handleSecretaria}>
             <option>Selecione a secretaria</option>
             {secretarias? secretarias.map(secretaria => <option value={secretaria.id} key={secretaria.id}>{secretaria.sigla}</option>) : ""}
           </Form.Select>
-          <Form.Select onChange={handleSetor}>
+          <Form.Select name="setor_id" onChange={handleSetor}>
             {setores? setores.map(setor => <option value={setor.id} key={setor.id}>{setor.sigla+(setor.sigla === setor.nome ? `` : ` - ${setor.nome}`)}</option>) : ""}
           </Form.Select>
-          <Form.Select onChange={handleClasse}>
+          <Form.Select name="classe" onChange={handleClasse}>
             <option value="PC" >Personal Computer</option>
             <option value="NTBK" >Notebook</option>
             <option value="PRT" >Impressora</option>
@@ -86,19 +93,24 @@ function App() {
             <option value="TBLT">Tablet</option>
             <option value="FW">Firewall</option>
           </Form.Select>
-          <Form.Select onChange={handlePropriedade}>
+          <Form.Select name="propriedade" onChange={handlePropriedade}>
             <option value="1" >Alugado</option>
             <option value="2" >Próprio (da casa)</option>
             <option value="3" >Particular</option>
           </Form.Select>
-          <Form.Control type="number" onInput={handleNumero} placeholder="quantidade"/>
-        </form>
+          <Form.Control name="numero" type="number" onInput={handleNumero} placeholder="número"/>
+          <Form.Control name="mac" placeholder="mac"/>
+          <Form.Control name="ip" placeholder="ip"/>
+          <Form.Control name="sn" placeholder="número serial"/>
+          <Form.Control name="tecladop_sn" placeholder="número serial do teclado"/>
+          <Form.Control name="mouse_sn" placeholder="número serial do mouse"/>
+          <Button type="submit">Enviar</Button>
+        </Form>
         <div className="resultado">
           <h3>O nome é:</h3>
           <h1 id="nome">{`S${secretariaSelecionada}S${setorSelecionado}${classe}${propriedade}N${numero}`}</h1>
         </div>
         <CopyToClipboardButton textToCopy={`S${secretariaSelecionada}S${setorSelecionado}${classe}${propriedade}N${numero}`} />
-        <Button onClick={sendNome}>Enviar</Button>
       </main>
       <Container>
         <TabelaComputadores computadores={computadores}/>
