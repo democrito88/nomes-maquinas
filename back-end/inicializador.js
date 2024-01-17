@@ -1,78 +1,58 @@
 const fs = require('fs');
-const db = require('./database/db'); //conexão com o banco
+const db = require('./database/db');
 
-// Specify the path to the JSON file
+function populateTableIfEmpty(tableName, jsonFilePath) {
+  try {
+    // Read the JSON file synchronously
+    const data = fs.readFileSync(jsonFilePath, 'utf8');
+
+    // Check if the table is already populated
+    const rows = db.all(`SELECT COUNT(*) FROM ${tableName}`);
+    if (Object.keys(rows).length === 0) {
+      // Parse the JSON content
+      const jsonData = JSON.parse(data);
+      let queryValues = '';
+
+      jsonData.forEach((item) => {
+        // Adjust the code based on the structure of your JSON and database schema
+        if (tableName === 'secretarias') {
+          queryValues += `('${item.nome}', '${item.sigla}'),`;
+        } else {
+          queryValues += `('${item.nome}', '${item.sigla}', '${item.idSecretaria}'),`;
+        }
+      });
+
+      console.log(`Populating table '${tableName}'.\n`);
+
+      // Execute the INSERT query
+      if (tableName === 'secretarias') {
+        db.run(`
+          INSERT INTO ${tableName} (nome, sigla) VALUES
+          ${queryValues}
+          ('', 1);
+        `);
+      } else {
+        db.run(`
+          INSERT INTO ${tableName} (nome, sigla, secretaria_id) VALUES
+          ${queryValues}
+          ('', '', 1);
+        `);
+      }
+
+      console.log(`Table '${tableName}' populated.\n`);
+    } else {
+      console.log(`Table '${tableName}' already populated.\n`);
+    }
+  } catch (error) {
+    console.error(`Error populating table '${tableName}':`, error);
+  }
+}
+
+// Specify the paths to the JSON files
 const jsonFileSecretariasPath = './../front-end/public/json/secretarias.json';
 const jsonFileSetoresPath = './../front-end/public/json/setores.json';
 
-// Read the JSON file
-fs.readFile(jsonFileSecretariasPath, 'utf8', (err, data) => {
-    if (err) {
-        console.error('Error reading JSON file:', err);
-        return;
-    }
-
-    try {
-        // Verifica se a tabela já está preenchida
-        db.all(`SELECT COUNT(*) FROM secretarias;`, (err, rows) => {
-            if (err) {
-              console.error(err);
-              return res.status(500).json({ error: 'Internal Server Error' });
-            }
-
-            if(rows.length === 0){
-                // Parse the JSON content
-                const jsonData = JSON.parse(data);
-                let dadosDaQuery = "";
-
-                jsonData.forEach(secretaria => dadosDaQuery += `('${secretaria.nome}', '${secretaria.sigla}'),`);
-
-                db.run(` 
-                    INSERT INTO setores (nome, sigla) VALUES
-                    ${dadosDaQuery}
-                    ('', '', 1);
-                `);
-            }
-            
-          });
-    } catch (parseError) {
-        console.error('Error parsing JSON:', parseError);
-    }
-});
-
-
-fs.readFile(jsonFileSetoresPath, 'utf8', (err, data) => {
-    if (err) {
-        console.error('Error reading JSON file:', err);
-        return;
-    }
-
-    try {
-        // Verifica se a tabela já está preenchida
-        db.all(`SELECT COUNT(*) FROM setores;`, (err, rows) => {
-            if (err) {
-              console.error(err);
-              return res.status(500).json({ error: 'Internal Server Error' });
-            }
-
-            if(rows.length === 0){
-                // Parse the JSON content
-                const jsonData2 = JSON.parse(data);
-                let dadosDaQuery = "";
-                
-                jsonData2.forEach(setor => dadosDaQuery += `('${setor.nome}', '${setor.sigla}', '${setor.idSecretaria}'),`);
-                console.log("\n");
-                // Access and work with the JSON data
-                db.run(` 
-                    INSERT INTO setores (nome, sigla, secretaria_id) VALUES
-                    ${dadosDaQuery}
-                    ('', '', 1);
-                `);
-                console.log("\n");
-            }
-          });
-        
-    } catch (parseError) {
-        console.error('Error parsing JSON:', parseError);
-    }
-});
+// Populate 'secretarias' table
+populateTableIfEmpty('secretarias', jsonFileSecretariasPath);
+populateTableIfEmpty('setores', jsonFileSetoresPath);
+// Populate 'setores' table

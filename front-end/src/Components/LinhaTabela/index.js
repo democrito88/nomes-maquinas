@@ -17,6 +17,8 @@ export default function LinhaTabela({computador}){
                 <td>{computador.classe}</td>
                 <td>{computador.numero}</td>
                 <td>{computador.status === 0 ? "a entregar" : "entregue"}</td>
+                <td>{computador.responsavel ?? "-"}</td>
+                <td>{computador.linkTermo ?? "-"}</td>
                 <td>
                     <button alt="detalhes..." onClick={handleShow}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-file-earmark-text-fill" viewBox="0 0 16 16">

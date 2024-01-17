@@ -32,6 +32,8 @@ db.run(`
     mouse_sn TEXT,
     monitor_sn TEXT,
     status INTERGER,
+    responsavel TEXT,
+    linkTermo TEXT,
     secretaria_id INTEGER,
     setor_id INTEGER,
     FOREIGN KEY (secretaria_id) REFERENCES secretarias(id),

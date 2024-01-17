@@ -58,7 +58,7 @@ function App() {
     e.preventDefault();
     let formData = new FormData(e.target);
     let nome = document.getElementById("nome").innerHTML;
-    axios.post(`http://${localhost}:3001/`, {
+    axios.post(`http://${localhost}:${serverPort}/`, {
       nome: nome,
       secretaria_id: formData.get('secretaria_id'),
       setor_id: formData.get('setor_id'),
@@ -70,7 +70,9 @@ function App() {
       sn: formData.get('sn'),
       teclado_sn: formData.get('teclado_sn'),
       mouse_sn: formData.get('mouse_sn'),
-      monitor_sn: formData.get('monitor_sn')
+      monitor_sn: formData.get('monitor_sn'),
+      responsavel: formData.get('responsavel'),
+      linkTermo: formData.get('linkTermo'),
     })
     .then(data => {
       console.log(data.data);

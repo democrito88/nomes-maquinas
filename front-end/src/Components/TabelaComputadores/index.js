@@ -21,6 +21,8 @@ export default function TabelaComputadores({computadores}){
                                 <td>Classe</td>
                                 <td>#</td>
                                 <td>Status</td>
+                                <td>Responsável</td>
+                                <td>Link para o Termo</td>
                                 <td></td>
                             </tr>
                         </thead>
