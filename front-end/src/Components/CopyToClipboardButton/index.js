@@ -17,7 +17,7 @@ export default function CopyToClipboardButton({ textToCopy }) {
     return (
         <Stack className="col-md-5 mx-auto">
             <Stack direction="horizontal" gap={1}>
-                <h1>{textToCopy}</h1>
+                <h1 id="nome">{textToCopy}</h1>
                 <Button variant="outline-secondary" id="button-addon2" onClick={handleCopyToClipboard}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-clipboard2-fill" viewBox="0 0 16 16">
                         <path d="M9.5 0a.5.5 0 0 1 .5.5.5.5 0 0 0 .5.5.5.5 0 0 1 .5.5V2a.5.5 0 0 1-.5.5h-5A.5.5 0 0 1 5 2v-.5a.5.5 0 0 1 .5-.5.5.5 0 0 0 .5-.5.5.5 0 0 1 .5-.5z" />

@@ -14,7 +14,7 @@ export default function TabelaComputadores({computadores}){
             </tr>
         </thead>
         <tbody>
-            {computadores.map(computador => <LinhaTabela computador={computador} />)}
+            {computadores.map(computador => <LinhaTabela key={computador.nome} computador={computador} />)}
         </tbody>
     </Table>
     );

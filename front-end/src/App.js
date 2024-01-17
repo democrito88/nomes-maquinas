@@ -67,8 +67,8 @@ function App() {
       mouse_sn: formData.get('mouse_sn')
     })
     .then(data => {
-      console.log(data);
-      setComputadores(arrayAnterior => [...arrayAnterior, data.data]);
+      console.log(data.data);
+      setComputadores(data.data);
     })
     .catch(error => console.error(error));
   }
@@ -86,6 +86,7 @@ function App() {
             {setores? setores.map(setor => <option value={setor.id} key={setor.id}>{setor.sigla+(setor.sigla === setor.nome ? `` : ` - ${setor.nome}`)}</option>) : ""}
           </Form.Select>
           <Form.Select name="classe" onChange={handleClasse}>
+            <option>Classe</option>
             <option value="PC" >Personal Computer</option>
             <option value="NTBK" >Notebook</option>
             <option value="PRT" >Impressora</option>
@@ -94,6 +95,7 @@ function App() {
             <option value="FW">Firewall</option>
           </Form.Select>
           <Form.Select name="propriedade" onChange={handlePropriedade}>
+            <option>Propriedade</option>
             <option value="1" >Alugado</option>
             <option value="2" >Próprio (da casa)</option>
             <option value="3" >Particular</option>
@@ -108,9 +110,8 @@ function App() {
         </Form>
         <div className="resultado">
           <h3>O nome é:</h3>
-          <h1 id="nome">{`S${secretariaSelecionada}S${setorSelecionado}${classe}${propriedade}N${numero}`}</h1>
+          <CopyToClipboardButton textToCopy={`S${secretariaSelecionada}S${setorSelecionado}${classe}${propriedade}N${numero}`} />
         </div>
-        <CopyToClipboardButton textToCopy={`S${secretariaSelecionada}S${setorSelecionado}${classe}${propriedade}N${numero}`} />
       </main>
       <Container>
         <TabelaComputadores computadores={computadores}/>

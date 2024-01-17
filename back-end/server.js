@@ -4,6 +4,7 @@ const app = express();
 const cors = require('cors');
 const bodyParser = require('body-parser'); //para conseguir receber requisições POST
 const db = require('./database/db'); //conexão com o banco
+require('./inicializador');
 
 const localhost = 'localhost';
 const portaFrontEnd = 3000;
@@ -17,23 +18,6 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions), bodyParser.json());
-
-//Alimentar a database
-db.run(` 
-  INSERT INTO secretarias (nome, sigla) VALUES
-    ('Secretaria da Fazenda', 'SEFAZ');
-    `);
-
-db.run(`
-  INSERT INTO setores (nome, sigla, secretaria_id) VALUES
-    ('Gabinete', 'Gabinete', 1);
-`);
- 
-db.run(`
-  INSERT INTO computadores (nome, classe, numero, mac, ip, sn, teclado_sn, mouse_sn, secretaria_id, setor_id) VALUES
-    ('S1S1PC1N1', 'PC', 1, '1a2b3c4d', '192.168.10.1', '?????????', '????', '?????', 1, 1);
-`);
-// Fim de alimentação de database
 
 
 // Para requisições GET
@@ -50,18 +34,16 @@ app.post(`*`, (req, res) => {
   VALUES('${formData.nome}', '${formData.secretaria_id}', '${formData.setor_id}', '${formData.classe}', '${formData.numero}', '${formData.mac}', 
   '${formData.ip}', '${formData.sn}', '${formData.teclado_sn}', '${formData.mouse_sn}')`);
 
-  db.all(`SELECT computadores.nome, secretarias.nome, setores.nome, computadores.classe, computadores.numero 
+  db.all(`SELECT computadores.nome, secretarias.nome AS nomeSecretaria, setores.nome AS nomeSetor, computadores.classe, computadores.numero 
   FROM computadores
-  JOIN secretarias ON secretarias.id = computadores.secretarias_id,
-  JOIN setores ON setores.id = computadores.setores_id`, (err, rows) => {
+  JOIN secretarias ON secretarias.id = computadores.secretaria_id
+  JOIN setores ON setores.id = computadores.setor_id`, (err, rows) => {
     if (err) {
       console.error(err);
       return res.status(500).json({ error: 'Internal Server Error' });
     }
     res.json(rows);
   });
-
-  db.close();
 });
 
 app.listen(port, () => {
