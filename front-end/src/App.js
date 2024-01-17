@@ -16,6 +16,7 @@ function App() {
   const [numero, setNumero] = useState(0);
   const [computadores, setComputadores] = useState([]);
   const localhost = 'localhost';
+  const serverPort = 3001;
 
   useEffect(() => {
     fetch(`http://${localhost}:3000/json/secretarias.json`)
@@ -25,7 +26,11 @@ function App() {
     fetch(`http://${localhost}:3000/json/setores.json`)
     .then(resposta => resposta.json())
     .then(dados => setTodosSetores(dados));
-  }, []);
+
+    axios.get(`http://${localhost}:${serverPort}/`)
+    .then(resposta => {setComputadores(resposta.data); console.log(computadores);})
+    .catch(error => console.error(error));
+  }, [computadores]);
 
   const handleSecretaria = (e) => {
     setSecretariaSelecionada(e.target.value);
@@ -64,11 +69,12 @@ function App() {
       propriedade: formData.get('propriedade'),
       sn: formData.get('sn'),
       teclado_sn: formData.get('teclado_sn'),
-      mouse_sn: formData.get('mouse_sn')
+      mouse_sn: formData.get('mouse_sn'),
+      monitor_sn: formData.get('monitor_sn')
     })
     .then(data => {
       console.log(data.data);
-      setComputadores(data.data);
+      setComputadores(arrayAnterior => [...arrayAnterior, data.data[0]]);
     })
     .catch(error => console.error(error));
   }
@@ -106,6 +112,7 @@ function App() {
           <Form.Control name="sn" placeholder="número serial"/>
           <Form.Control name="tecladop_sn" placeholder="número serial do teclado"/>
           <Form.Control name="mouse_sn" placeholder="número serial do mouse"/>
+          <Form.Control name="monitor_sn" placeholder="número serial do monitor"/>
           <Button type="submit">Enviar</Button>
         </Form>
         <div className="resultado">
@@ -114,7 +121,7 @@ function App() {
         </div>
       </main>
       <Container>
-        <TabelaComputadores computadores={computadores}/>
+        {computadores ? <TabelaComputadores computadores={computadores}/> : <p>Ainda não foi cadastrado nenhum dispositivo</p>}
       </Container>
     </div>
   );

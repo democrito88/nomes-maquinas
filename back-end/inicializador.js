@@ -13,18 +13,28 @@ fs.readFile(jsonFileSecretariasPath, 'utf8', (err, data) => {
     }
 
     try {
-        // Parse the JSON content
-        const jsonData = JSON.parse(data);
-        let dadosDaQuery = "";
+        // Verifica se a tabela já está preenchida
+        db.all(`SELECT COUNT(*) FROM secretarias;`, (err, rows) => {
+            if (err) {
+              console.error(err);
+              return res.status(500).json({ error: 'Internal Server Error' });
+            }
 
-        jsonData.forEach(secretaria => dadosDaQuery += `('${secretaria.nome}', '${secretaria.sigla}'),`);
+            if(rows.length === 0){
+                // Parse the JSON content
+                const jsonData = JSON.parse(data);
+                let dadosDaQuery = "";
 
-        // Access and work with the JSON data
-        db.run(` 
-            INSERT INTO secretarias (nome, sigla) VALUES
-            ${dadosDaQuery}
-            ('', '');
-        `);
+                jsonData.forEach(secretaria => dadosDaQuery += `('${secretaria.nome}', '${secretaria.sigla}'),`);
+
+                db.run(` 
+                    INSERT INTO setores (nome, sigla) VALUES
+                    ${dadosDaQuery}
+                    ('', '', 1);
+                `);
+            }
+            
+          });
     } catch (parseError) {
         console.error('Error parsing JSON:', parseError);
     }
@@ -38,19 +48,30 @@ fs.readFile(jsonFileSetoresPath, 'utf8', (err, data) => {
     }
 
     try {
-        // Parse the JSON content
-        const jsonData2 = JSON.parse(data);
-        let dadosDaQuery = "";
+        // Verifica se a tabela já está preenchida
+        db.all(`SELECT COUNT(*) FROM setores;`, (err, rows) => {
+            if (err) {
+              console.error(err);
+              return res.status(500).json({ error: 'Internal Server Error' });
+            }
+
+            if(rows.length === 0){
+                // Parse the JSON content
+                const jsonData2 = JSON.parse(data);
+                let dadosDaQuery = "";
+                
+                jsonData2.forEach(setor => dadosDaQuery += `('${setor.nome}', '${setor.sigla}', '${setor.idSecretaria}'),`);
+                console.log("\n");
+                // Access and work with the JSON data
+                db.run(` 
+                    INSERT INTO setores (nome, sigla, secretaria_id) VALUES
+                    ${dadosDaQuery}
+                    ('', '', 1);
+                `);
+                console.log("\n");
+            }
+          });
         
-        jsonData2.forEach(setor => dadosDaQuery += `('${setor.nome}', '${setor.sigla}', '${setor.idSecretaria}'),`);
-        console.log("\n");
-        // Access and work with the JSON data
-        db.run(` 
-            INSERT INTO setores (nome, sigla, secretaria_id) VALUES
-            ${dadosDaQuery}
-            ('', '', 1);
-        `);
-        console.log("\n");
     } catch (parseError) {
         console.error('Error parsing JSON:', parseError);
     }
