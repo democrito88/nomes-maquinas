@@ -15,7 +15,8 @@ function App() {
   const [propriedade, setPropriedade] = useState(1);
   const [numero, setNumero] = useState(0);
   const [computadores, setComputadores] = useState([]);
-  const localhost = 'localhost';
+  const [funcionarios, setFuncionarios] = useState([]);
+  const localhost = '192.168.11.131';
   const serverPort = 3001;
 
   useEffect(() => {
@@ -123,7 +124,7 @@ function App() {
         </div>
       </main>
       <Container>
-        {computadores ? <TabelaComputadores computadores={computadores}/> : <p>Ainda não foi cadastrado nenhum dispositivo</p>}
+        {computadores ? <TabelaComputadores computadores={computadores} funcionarios={funcionarios}/> : <p>Ainda não foi cadastrado nenhum dispositivo</p>}
       </Container>
     </div>
   );

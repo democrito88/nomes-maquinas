@@ -280,5 +280,83 @@
         "nome": "Secretaria Executiva de Gestão e Administração",
         "sigla": "SEGA",
         "idSecretaria": 2
+    },
+    {
+        "id": 48,
+        "nome": "Secretaria de Governo",
+        "sigla": "SEGOV",
+        "idSecretaria": 3
+    },
+    {
+        "id": 49,
+        "nome": "Secretaria de Desenvolvimento Econômico e Teconologia da Informação",
+        "sigla": "SEDEIT",
+        "idSecretaria": 4
+    },
+    {
+        "id": 50,
+        "nome": "Procuradoria Geral do Município",
+        "sigla": "PGM",
+        "idSecretaria": 5
+    },
+    {
+        "id": 51,
+        "nome": "Secretaria de Obras",
+        "sigla": "SecObras",
+        "idSecretaria": 6
+    },
+    {
+        "id": 52,
+        "nome": "Secretaria Mobilidade Urbana",
+        "sigla": "SMU",
+        "idSecretaria": 7
+    },
+    {
+        "id": 53,
+        "nome": "Secretaria de Comunicação",
+        "sigla": "SECOM",
+        "idSecretaria": 8
+    },
+    {
+        "id": 54,
+        "nome": "Secretaria de Segurança Cidadã",
+        "sigla": "SSC",
+        "idSecretaria": 9
+    },
+    {
+        "id": 55,
+        "nome": "secretaria de Gerência Urbana",
+        "sigla": "SGU",
+        "idSecretaria": 10
+    },
+    {
+        "id": 56,
+        "nome": "Secretaria de Patrimônio, Cultura e Turismo",
+        "sigla": "SEPACTUR",
+        "idSecretaria": 11
+    },
+    {
+        "id": 57,
+        "nome": "Secretaria de Educação",
+        "sigla": "SEDUC",
+        "idSecretaria": 12
+    },
+    {
+        "id": 58,
+        "nome": "Secretaria de Meio Ambiente Planejamento Urbano",
+        "sigla": "SEMAPU",
+        "idSecretaria": 13
+    },
+    {
+        "id": 59,
+        "nome": "Controladoria Geral do Município",
+        "sigla": "CGM",
+        "idSecretaria": 14
+    },
+    {
+        "id": 60,
+        "nome": "Secretaria de Planejamento e Gestão Estratégica",
+        "sigla": "SEPLAG",
+        "idSecretaria": 15
     }
 ]

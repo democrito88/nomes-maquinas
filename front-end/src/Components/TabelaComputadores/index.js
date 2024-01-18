@@ -1,7 +1,7 @@
 import { Col, Container, Row, Table } from "react-bootstrap";
 import LinhaTabela from "./../LinhaTabela";
 
-export default function TabelaComputadores({computadores}){
+export default function TabelaComputadores({computadores, funcionarios}){
     return (
         <Container direction="column" className="justify-content-center">
             <Row className="justify-content-center">
@@ -27,7 +27,7 @@ export default function TabelaComputadores({computadores}){
                             </tr>
                         </thead>
                         <tbody>
-                            {computadores.map(computador => <LinhaTabela key={computador.id} computador={computador} />)}
+                            {computadores.map((key, computador) => <LinhaTabela key={computador.id} computador={computador} funcionario={funcionarios[key]} />)}
                         </tbody>
                     </Table>
                 </Col>

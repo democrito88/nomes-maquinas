@@ -20,6 +20,18 @@ db.run(`
   `);
 
 db.run(`
+  CREATE TABLE IF NOT EXISTS funcionarios (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome TEXT NOT NULL,
+    matricula TEXT,
+    cargo TEXT,
+    funcao TEXT,
+    setor TEXT,
+    FOREIGN KEY (setor_id) REFERENCES setores(id)
+  );
+`);
+
+db.run(`
   CREATE TABLE IF NOT EXISTS computadores (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     nome TEXT NOT NULL,
@@ -36,8 +48,10 @@ db.run(`
     linkTermo TEXT,
     secretaria_id INTEGER,
     setor_id INTEGER,
+    funcionario_id INTEGER,
     FOREIGN KEY (secretaria_id) REFERENCES secretarias(id),
-    FOREIGN KEY (setor_id) REFERENCES setores(id)
+    FOREIGN KEY (setor_id) REFERENCES setores(id),
+    FOREIGN KEY (funcionario_id) REFERENCES funcionarios(id)
   );
   `);
 

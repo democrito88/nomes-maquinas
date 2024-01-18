@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ModalComputador from "../ModalComputador";
 
-export default function LinhaTabela({computador}){
+export default function LinhaTabela({computador, funcionario}){
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
@@ -27,7 +27,7 @@ export default function LinhaTabela({computador}){
                     </button>
                 </td>
             </tr>
-            <ModalComputador handleClose={handleClose} handleShow={handleShow} show={show} computador={computador}/>
+            <ModalComputador handleClose={handleClose} handleShow={handleShow} show={show} computador={computador} funcionario={funcionario}/>
         </>
     );
 }

@@ -6,7 +6,7 @@ const bodyParser = require('body-parser'); //para conseguir receber requisiçõe
 const db = require('./database/db'); //conexão com o banco
 require('./inicializador');
 
-const localhost = 'localhost';
+const localhost = '192.168.11.131';
 const portaFrontEnd = 3000;
 const port = 3001;
 
@@ -19,13 +19,14 @@ const corsOptions = {
 
 app.use(cors(corsOptions), bodyParser.json());
 
-
 // Para requisições GET
 app.get('*', (req, res) => {
-  db.all(`SELECT computadores.*, secretarias.sigla AS nomeSecretaria, setores.sigla AS nomeSetor 
+  db.all(`SELECT computadores.*, secretarias.sigla AS nomeSecretaria, setores.sigla AS nomeSetor,
+  funcionarios.* 
   FROM computadores
   JOIN secretarias ON secretarias.id = computadores.secretaria_id
   JOIN setores ON setores.id = computadores.setor_id
+  JOIN funcionarios ON funcionarios.id = computadores.funcionario_id
   ORDER BY computadores.id ASC`, (err, rows) => {
     if (err) {
       console.error(err);
@@ -43,10 +44,12 @@ app.post(`*`, (req, res) => {
   VALUES('${formData.nome}', '${formData.secretaria_id}', '${formData.setor_id}', '${formData.classe}', '${formData.numero}', '${formData.mac}', 
   '${formData.ip}', '${formData.sn}', '${formData.teclado_sn}', '${formData.mouse_sn}', '${formData.monitor_sn}', 0)`);
 
-  db.all(`SELECT computadores.id, computadores.nome, secretarias.sigla AS nomeSecretaria, setores.sigla AS nomeSetor, computadores.classe, computadores.numero 
+  db.all(`SELECT computadores.id, computadores.nome, secretarias.sigla AS nomeSecretaria, setores.sigla AS nomeSetor, computadores.classe, computadores.numero,
+  funcionarios.*
   FROM computadores
   JOIN secretarias ON secretarias.id = computadores.secretaria_id
   JOIN setores ON setores.id = computadores.setor_id
+  JOIN funcionarios ON funcionarios.id = computadores.funcionario_id
   ORDER BY computadores.id DESC LIMIT 1`, (err, rows) => {
     if (err) {
       console.error(err);
