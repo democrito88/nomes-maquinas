@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import './App.css';
 import { Button, Container, Form } from "react-bootstrap";
 import CopyToClipboardButton from "./Components/CopyToClipboardButton";
@@ -21,21 +21,21 @@ function App() {
 
   useEffect(() => {
     fetch(`http://${localhost}:3000/json/secretarias.json`)
-    .then(resposta => resposta.json())
-    .then(dados => setSecretarias(dados));
+      .then(resposta => resposta.json())
+      .then(dados => setSecretarias(dados));
 
     fetch(`http://${localhost}:3000/json/setores.json`)
-    .then(resposta => resposta.json())
-    .then(dados => setTodosSetores(dados));
+      .then(resposta => resposta.json())
+      .then(dados => setTodosSetores(dados));
 
     axios.get(`http://${localhost}:${serverPort}/`)
-    .then(resposta => {setComputadores(resposta.data); console.log(computadores);})
-    .catch(error => console.error(error));
+      .then(resposta => { setComputadores(resposta.data); console.log(computadores); })
+      .catch(error => console.error(error));
   }, [computadores]);
 
   const handleSecretaria = (e) => {
     setSecretariaSelecionada(e.target.value);
-    const novosSetores = todosSetores.filter(setor => setor.idSecretaria === e.target.value);
+    const novosSetores = todosSetores.filter(setor => setor.idSecretaria == e.target.value);
     setSetores(novosSetores);
   }
 
@@ -50,7 +50,7 @@ function App() {
   const handlePropriedade = (e) => {
     setPropriedade(e.target.value);
   }
-  
+
   const handleNumero = (e) => {
     setNumero(e.target.value);
   }
@@ -75,13 +75,21 @@ function App() {
       responsavel: formData.get('responsavel'),
       linkTermo: formData.get('linkTermo'),
     })
-    .then(data => {
-      console.log(data.data);
-      setComputadores(arrayAnterior => [...arrayAnterior, data.data[0]]);
-      document.querySelectorAll("input").forEach(input => input.value = "");
-      document.querySelectorAll("select").forEach(select => select.value = "");
-    })
-    .catch(error => console.error(error));
+      .then(data => {
+        console.log(data.data);
+        setComputadores(arrayAnterior => [...arrayAnterior, data.data[0]]);
+        document.querySelectorAll("input").forEach(input => input.value = "");
+        document.querySelectorAll("select").forEach(select => select.value = "");
+        setSecretarias([]);
+        setTodosSetores([]);
+        setSetores([]);
+        setSecretariaSelecionada(1);
+        setSetorSelecionado(1);
+        setClasse("PC");
+        setPropriedade(1);
+        setNumero(0)
+      })
+      .catch(error => console.error(error));
   }
 
   return (
@@ -91,10 +99,10 @@ function App() {
         <Form className="formulario" onSubmit={enviar}>
           <Form.Select name="secretaria_id" onChange={handleSecretaria}>
             <option>Selecione a secretaria</option>
-            {secretarias? secretarias.map(secretaria => <option value={secretaria.id} key={secretaria.id}>{secretaria.sigla}</option>) : ""}
+            {secretarias ? secretarias.map(secretaria => <option value={secretaria.id} key={secretaria.id}>{secretaria.sigla}</option>) : ""}
           </Form.Select>
           <Form.Select name="setor_id" onChange={handleSetor}>
-            {setores? setores.map(setor => <option value={setor.id} key={setor.id}>{setor.sigla+(setor.sigla === setor.nome ? `` : ` - ${setor.nome}`)}</option>) : ""}
+            {setores ? setores.map(setor => <option value={setor.id} key={setor.id}>{setor.sigla + (setor.sigla === setor.nome ? `` : ` - ${setor.nome}`)}</option>) : ""}
           </Form.Select>
           <Form.Select name="classe" onChange={handleClasse}>
             <option>Classe</option>
@@ -111,13 +119,13 @@ function App() {
             <option value="2" >Próprio (da casa)</option>
             <option value="3" >Particular</option>
           </Form.Select>
-          <Form.Control name="numero" type="number" onInput={handleNumero} placeholder="número"/>
-          <Form.Control name="mac" placeholder="mac"/>
-          <Form.Control name="ip" placeholder="ip"/>
-          <Form.Control name="sn" placeholder="número serial"/>
-          <Form.Control name="tecladop_sn" placeholder="número serial do teclado"/>
-          <Form.Control name="mouse_sn" placeholder="número serial do mouse"/>
-          <Form.Control name="monitor_sn" placeholder="número serial do monitor"/>
+          <Form.Control name="numero" type="number" onInput={handleNumero} placeholder="número" />
+          <Form.Control name="mac" placeholder="mac" />
+          <Form.Control name="ip" placeholder="ip" />
+          <Form.Control name="sn" placeholder="número serial" />
+          <Form.Control name="tecladop_sn" placeholder="número serial do teclado" />
+          <Form.Control name="mouse_sn" placeholder="número serial do mouse" />
+          <Form.Control name="monitor_sn" placeholder="número serial do monitor" />
           <Button type="submit">Enviar</Button>
         </Form>
         <div className="resultado">
@@ -126,7 +134,7 @@ function App() {
         </div>
       </main>
       <Container>
-        {computadores ? <TabelaComputadores computadores={computadores} funcionarios={funcionarios}/> : <p>Ainda não foi cadastrado nenhum dispositivo</p>}
+        {computadores ? <TabelaComputadores computadores={computadores} funcionarios={funcionarios} /> : <p>Ainda não foi cadastrado nenhum dispositivo</p>}
       </Container>
     </div>
   );

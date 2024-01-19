@@ -22,11 +22,11 @@ app.use(cors(corsOptions), bodyParser.json());
 // Para requisições GET
 app.get('*', (req, res) => {
   db.all(`SELECT computadores.*, secretarias.sigla AS nomeSecretaria, setores.sigla AS nomeSetor,
-  funcionarios.* 
+  funcionarios.nome AS nomeFuncionario 
   FROM computadores
   JOIN secretarias ON secretarias.id = computadores.secretaria_id
   JOIN setores ON setores.id = computadores.setor_id
-  JOIN funcionarios ON funcionarios.id = computadores.funcionario_id
+  LEFT JOIN funcionarios ON funcionarios.id = computadores.funcionario_id
   ORDER BY computadores.id ASC`, (err, rows) => {
     if (err) {
       console.error(err);
@@ -45,11 +45,11 @@ app.post(`*`, (req, res) => {
   '${formData.ip}', '${formData.sn}', '${formData.teclado_sn}', '${formData.mouse_sn}', '${formData.monitor_sn}', 0)`);
 
   db.all(`SELECT computadores.id, computadores.nome, secretarias.sigla AS nomeSecretaria, setores.sigla AS nomeSetor, computadores.classe, computadores.numero,
-  funcionarios.*
+  funcionarios.nome AS nomeFuncionario
   FROM computadores
   JOIN secretarias ON secretarias.id = computadores.secretaria_id
   JOIN setores ON setores.id = computadores.setor_id
-  JOIN funcionarios ON funcionarios.id = computadores.funcionario_id
+  LEFT JOIN funcionarios ON funcionarios.id = computadores.funcionario_id
   ORDER BY computadores.id DESC LIMIT 1`, (err, rows) => {
     if (err) {
       console.error(err);
