@@ -29,7 +29,7 @@ function populateTableIfEmpty(tableName, jsonFilePath) {
         db.run(`
           INSERT INTO ${tableName} (nome, sigla) VALUES
           ${queryValues}
-          ('', 1);
+          ('', '');
         `);
       } else {
         db.run(`

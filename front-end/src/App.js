@@ -35,7 +35,7 @@ function App() {
 
   const handleSecretaria = (e) => {
     setSecretariaSelecionada(e.target.value);
-    const novosSetores = todosSetores.filter(setor => setor.idSecretaria == e.target.value);
+    const novosSetores = todosSetores.filter(setor => setor.idSecretaria === e.target.value);
     setSetores(novosSetores);
   }
 
@@ -78,6 +78,8 @@ function App() {
     .then(data => {
       console.log(data.data);
       setComputadores(arrayAnterior => [...arrayAnterior, data.data[0]]);
+      document.querySelectorAll("input").forEach(input => input.value = "");
+      document.querySelectorAll("select").forEach(select => select.value = "");
     })
     .catch(error => console.error(error));
   }
