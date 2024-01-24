@@ -6,12 +6,12 @@ const bodyParser = require('body-parser'); //para conseguir receber requisiçõe
 const db = require('./database/db'); //conexão com o banco
 require('./inicializador');
 
-const localhost = '192.168.11.131';
+const localhost = '192.168.11.132';
 const portaFrontEnd = 3000;
 const port = 3001;
 
 const corsOptions = {
-  origin: `http://${localhost}:${portaFrontEnd}`, // URL do front-end
+  origin: `*`, // URL do front-end
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', //métodos aceitos
   credentials: true, // Enable credentials (cookies, authorization headers)
   optionsSuccessStatus: 204, // Respond with 204 No Content for preflight requests
@@ -21,15 +21,14 @@ app.use(cors(corsOptions), bodyParser.json());
 
 // Para requisições GET
 app.get('*', (req, res) => {
-  db.all(`SELECT computadores.*, secretarias.sigla AS nomeSecretaria, setores.sigla AS nomeSetor,
-  funcionarios.nome AS nomeFuncionario 
+  //LEFT JOIN funcionarios ON funcionarios.id = computadores.funcionario_id
+  db.all(`SELECT computadores.*, secretarias.sigla AS nomeSecretaria, setores.sigla AS nomeSetor
   FROM computadores
-  JOIN secretarias ON secretarias.id = computadores.secretaria_id
   JOIN setores ON setores.id = computadores.setor_id
-  LEFT JOIN funcionarios ON funcionarios.id = computadores.funcionario_id
+  JOIN secretarias ON secretarias.id = setores.secretaria_id
   ORDER BY computadores.id ASC`, (err, rows) => {
     if (err) {
-      console.error(err);
+      console.error(err.message);
       return res.status(500).json({ error: 'Internal Server Error' });
     }
     res.json(rows);
@@ -40,23 +39,21 @@ app.get('*', (req, res) => {
 app.post(`*`, (req, res) => {
   let formData = req.body;
 
-  db.run(`INSERT INTO computadores ('nome', 'secretaria_id', 'setor_id', 'classe', 'numero', 'mac', 'ip', 'sn', 'teclado_sn', 'mouse_sn', 'monitor_sn', 'status') 
-  VALUES('${formData.nome}', '${formData.secretaria_id}', '${formData.setor_id}', '${formData.classe}', '${formData.numero}', '${formData.mac}', 
-  '${formData.ip}', '${formData.sn}', '${formData.teclado_sn}', '${formData.mouse_sn}', '${formData.monitor_sn}', 0)`);
+  /*db.run(`INSERT INTO computadores ('nome', 'setor_id', 'classe', 'numero', 'mac', 'ip', 'sn', 'teclado_sn', 'mouse_sn', 'monitor_sn', 'status') 
+  VALUES('${formData.nome}', '${formData.setor_id}', '${formData.classe}', '${formData.numero}', '${formData.mac}', 
+  '${formData.ip}', '${formData.sn}', '${formData.teclado_sn}', '${formData.mouse_sn}', '${formData.monitor_sn}', 0)`);  */
 
-  db.all(`SELECT computadores.id, computadores.nome, secretarias.sigla AS nomeSecretaria, setores.sigla AS nomeSetor, computadores.classe, computadores.numero,
-  funcionarios.nome AS nomeFuncionario
+  db.all(`SELECT computadores.id, computadores.nome, secretarias.sigla AS nomeSecretaria, setores.sigla AS nomeSetor, computadores.classe, computadores.numero
   FROM computadores
-  JOIN secretarias ON secretarias.id = computadores.secretaria_id
   JOIN setores ON setores.id = computadores.setor_id
-  LEFT JOIN funcionarios ON funcionarios.id = computadores.funcionario_id
+  JOIN secretarias ON secretarias.id = setores.secretaria_id
   ORDER BY computadores.id DESC LIMIT 1`, (err, rows) => {
     if (err) {
-      console.error(err);
+      console.error(err.message);
       return res.status(500).json({ error: 'Internal Server Error' });
     }
     res.json(rows);
-  });
+  }); 
 });
 
 app.listen(port, () => {

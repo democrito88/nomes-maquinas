@@ -60,13 +60,11 @@ createTable(`
     status INTEGER,
     responsavel TEXT,
     linkTermo TEXT,
-    secretaria_id INTEGER,
     setor_id INTEGER,
-    funcionario_id INTEGER,
-    FOREIGN KEY (secretaria_id) REFERENCES secretarias(id),
-    FOREIGN KEY (setor_id) REFERENCES setores(id),
-    FOREIGN KEY (funcionario_id) REFERENCES funcionarios(id)
-  );
-`, 'Computadores');
-
+    FOREIGN KEY (setor_id) REFERENCES setores(id)
+    );
+    `, 'Computadores');
+    //funcionario_id INTEGER,
+    //FOREIGN KEY (funcionario_id) REFERENCES funcionarios(id)
+    
 module.exports = db;
