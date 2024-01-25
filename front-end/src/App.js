@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import './App.css';
 import { Button, Container, Form } from "react-bootstrap";
 import CopyToClipboardButton from "./Components/CopyToClipboardButton";
-import TabelaComputadores from "./Components/TabelaComputadores";
+//import TabelaComputadores from "./Components/TabelaComputadores";
 import axios from 'axios';
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
   const [propriedade, setPropriedade] = useState(1);
   const [numero, setNumero] = useState(0);
   const [computadores, setComputadores] = useState([]);
-  const [funcionarios, setFuncionarios] = useState([]);
+  //const [funcionarios, setFuncionarios] = useState([]);
   const localhost = '192.168.11.131';
   const serverPort = 3001;
 
@@ -31,11 +31,11 @@ function App() {
     axios.get(`http://${localhost}:${serverPort}/`)
       .then(resposta => { setComputadores(resposta.data); console.log(computadores); })
       .catch(error => console.error(error));
-  }, [computadores]);
+  }, []);
 
   const handleSecretaria = (e) => {
     setSecretariaSelecionada(e.target.value);
-    const novosSetores = todosSetores.filter(setor => setor.idSecretaria == e.target.value);
+    const novosSetores = todosSetores.filter(setor => setor.idSecretaria === ""+e.target.value);
     setSetores(novosSetores);
   }
 
@@ -134,7 +134,7 @@ function App() {
         </div>
       </main>
       <Container>
-        {computadores ? <TabelaComputadores computadores={computadores} funcionarios={funcionarios} /> : <p>Ainda não foi cadastrado nenhum dispositivo</p>}
+        {/*computadores ? <TabelaComputadores computadores={computadores} funcionarios={funcionarios} /> : <p>Ainda não foi cadastrado nenhum dispositivo</p> */}
       </Container>
     </div>
   );

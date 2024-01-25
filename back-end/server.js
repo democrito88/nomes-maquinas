@@ -6,7 +6,7 @@ const bodyParser = require('body-parser'); //para conseguir receber requisiçõe
 const db = require('./database/db'); //conexão com o banco
 require('./inicializador');
 
-const localhost = '192.168.11.132';
+const localhost = '192.168.11.131';
 const portaFrontEnd = 3000;
 const port = 3001;
 
