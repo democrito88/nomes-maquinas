@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import './App.css';
 import { Button, Container, Form } from "react-bootstrap";
 import CopyToClipboardButton from "./Components/CopyToClipboardButton";
-//import TabelaComputadores from "./Components/TabelaComputadores";
+import TabelaComputadores from "./Components/TabelaComputadores";
 import axios from 'axios';
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
   const [propriedade, setPropriedade] = useState(1);
   const [numero, setNumero] = useState(0);
   const [computadores, setComputadores] = useState([]);
-  //const [funcionarios, setFuncionarios] = useState([]);
+  const [funcionarios, setFuncionarios] = useState([]);
   const localhost = 'localhost';
   const serverHost = '192.168.11.131';
   const serverPort = 3001;
@@ -30,7 +30,19 @@ function App() {
       .then(dados => setTodosSetores(dados));
 
     axios.get(`http://${serverHost}:${serverPort}/`)
-      .then(resposta => { setComputadores(resposta.data); })
+      .then(resposta => {
+        const newComputer = {
+          id: resposta.data[0].id,
+          nome: resposta.data[0].nome,
+          nomeSecretaria: resposta.data[0].nomeSecretaria,
+          nomeSetor: resposta.data[0].nomeSetor,
+          classe: resposta.data[0].classe,
+          numero: resposta.data[0].numero,
+        };
+    
+        console.log(newComputer);
+        setComputadores(arrayAnterior => [...arrayAnterior, newComputer]);
+      })
       .catch(error => console.error(error));
   }, []);
 
@@ -77,8 +89,17 @@ function App() {
       linkTermo: formData.get('linkTermo'),
     })
       .then(data => {
-        console.log(data.data);
-        setComputadores(arrayAnterior => [...arrayAnterior, data.data[0]]);
+        const newComputer = {
+          id: data.data[0].id,
+          nome: data.data[0].nome,
+          nomeSecretaria: data.data[0].nomeSecretaria,
+          nomeSetor: data.data[0].nomeSetor,
+          classe: data.data[0].classe,
+          numero: data.data[0].numero,
+        };
+    
+        console.log(newComputer);
+        setComputadores(arrayAnterior => [...arrayAnterior, newComputer]);
         document.querySelectorAll("input").forEach(input => input.value = "");
         document.querySelectorAll("select").forEach(select => select.value = "");
         setSetores([]);
@@ -133,8 +154,7 @@ function App() {
         </div>
       </main>
       <Container>
-        {/*computadores ? <TabelaComputadores computadores={computadores} funcionarios={funcionarios} /> : <p>Ainda não foi cadastrado nenhum dispositivo</p> */}
-        { computadores}
+        {computadores ? <TabelaComputadores computadores={computadores} funcionarios={funcionarios} /> : <p>Ainda não foi cadastrado nenhum dispositivo</p>}
       </Container>
     </div>
   );

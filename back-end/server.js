@@ -40,9 +40,9 @@ app.post(`*`, (req, res) => {
   let formData = req.body;
   console.log(req.body);
 
-  /*db.run(`INSERT INTO computadores ('nome', 'setor_id', 'classe', 'numero', 'mac', 'ip', 'sn', 'teclado_sn', 'mouse_sn', 'monitor_sn', 'status') 
+  db.run(`INSERT INTO computadores ('nome', 'setor_id', 'classe', 'numero', 'mac', 'ip', 'sn', 'teclado_sn', 'mouse_sn', 'monitor_sn', 'status') 
   VALUES('${formData.nome}', '${formData.setor_id}', '${formData.classe}', '${formData.numero}', '${formData.mac}', 
-  '${formData.ip}', '${formData.sn}', '${formData.teclado_sn}', '${formData.mouse_sn}', '${formData.monitor_sn}', 0)`);  */
+  '${formData.ip}', '${formData.sn}', '${formData.teclado_sn}', '${formData.mouse_sn}', '${formData.monitor_sn}', 0);`);  
 
   db.all(`SELECT computadores.id, computadores.nome, secretarias.sigla AS nomeSecretaria, setores.sigla AS nomeSetor, computadores.classe, computadores.numero
   FROM computadores
