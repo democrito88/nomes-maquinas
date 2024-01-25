@@ -4,6 +4,7 @@ import { Button, Container, Form } from "react-bootstrap";
 import CopyToClipboardButton from "./Components/CopyToClipboardButton";
 import TabelaComputadores from "./Components/TabelaComputadores";
 import axios from 'axios';
+import Scanner from "./Components/Scanner";
 
 function App() {
   const [secretarias, setSecretarias] = useState([]);
@@ -156,6 +157,7 @@ function App() {
       <Container>
         {computadores ? <TabelaComputadores computadores={computadores} funcionarios={funcionarios} /> : <p>Ainda não foi cadastrado nenhum dispositivo</p>}
       </Container>
+      <Scanner/>
     </div>
   );
 }
