@@ -38,6 +38,7 @@ app.get('*', (req, res) => {
 // Para requisições POSt
 app.post(`*`, (req, res) => {
   let formData = req.body;
+  console.log(req.body);
 
   /*db.run(`INSERT INTO computadores ('nome', 'setor_id', 'classe', 'numero', 'mac', 'ip', 'sn', 'teclado_sn', 'mouse_sn', 'monitor_sn', 'status') 
   VALUES('${formData.nome}', '${formData.setor_id}', '${formData.classe}', '${formData.numero}', '${formData.mac}', 

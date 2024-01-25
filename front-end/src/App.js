@@ -16,7 +16,8 @@ function App() {
   const [numero, setNumero] = useState(0);
   const [computadores, setComputadores] = useState([]);
   //const [funcionarios, setFuncionarios] = useState([]);
-  const localhost = '192.168.11.131';
+  const localhost = 'localhost';
+  const serverHost = '192.168.11.131';
   const serverPort = 3001;
 
   useEffect(() => {
@@ -28,14 +29,14 @@ function App() {
       .then(resposta => resposta.json())
       .then(dados => setTodosSetores(dados));
 
-    axios.get(`http://${localhost}:${serverPort}/`)
-      .then(resposta => { setComputadores(resposta.data); console.log(computadores); })
+    axios.get(`http://${serverHost}:${serverPort}/`)
+      .then(resposta => { setComputadores(resposta.data); })
       .catch(error => console.error(error));
   }, []);
 
   const handleSecretaria = (e) => {
     setSecretariaSelecionada(e.target.value);
-    const novosSetores = todosSetores.filter(setor => setor.idSecretaria === ""+e.target.value);
+    const novosSetores = todosSetores.filter(setor => setor.idSecretaria == e.target.value);
     setSetores(novosSetores);
   }
 
@@ -59,7 +60,7 @@ function App() {
     e.preventDefault();
     let formData = new FormData(e.target);
     let nome = document.getElementById("nome").innerHTML;
-    axios.post(`http://${localhost}:${serverPort}/`, {
+    axios.post(`http://${serverHost}:${serverPort}/`, {
       nome: nome,
       secretaria_id: formData.get('secretaria_id'),
       setor_id: formData.get('setor_id'),
@@ -80,8 +81,6 @@ function App() {
         setComputadores(arrayAnterior => [...arrayAnterior, data.data[0]]);
         document.querySelectorAll("input").forEach(input => input.value = "");
         document.querySelectorAll("select").forEach(select => select.value = "");
-        setSecretarias([]);
-        setTodosSetores([]);
         setSetores([]);
         setSecretariaSelecionada(1);
         setSetorSelecionado(1);
@@ -135,6 +134,7 @@ function App() {
       </main>
       <Container>
         {/*computadores ? <TabelaComputadores computadores={computadores} funcionarios={funcionarios} /> : <p>Ainda não foi cadastrado nenhum dispositivo</p> */}
+        { computadores}
       </Container>
     </div>
   );
