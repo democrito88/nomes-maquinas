@@ -18,7 +18,7 @@ function App() {
   const [computadores, setComputadores] = useState([]);
   const [funcionarios, setFuncionarios] = useState([]);
   const localhost = 'localhost';
-  const serverHost = '192.168.11.131';
+  const serverHost = '192.168.11.132';
   const serverPort = 3001;
 
   useEffect(() => {
@@ -99,8 +99,8 @@ function App() {
           numero: data.data[0].numero,
         };
     
-        console.log(newComputer);
         setComputadores(arrayAnterior => [...arrayAnterior, newComputer]);
+        console.log(computadores);
         document.querySelectorAll("input").forEach(input => input.value = "");
         document.querySelectorAll("select").forEach(select => select.value = "");
         setSetores([]);

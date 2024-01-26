@@ -27,7 +27,7 @@ export default function TabelaComputadores({computadores, funcionarios}){
                             </tr>
                         </thead>
                         <tbody>
-                            {computadores.map((key, computador) => <LinhaTabela key={computador.id} computador={computador} funcionario={funcionarios[key]} />)}
+                            {computadores.map( computador => <LinhaTabela key={computador.id} computador={computador} funcionario={funcionarios[0]} />)}
                         </tbody>
                     </Table>
                 </Col>
