@@ -98,9 +98,13 @@ function App() {
           classe: data.data[0].classe,
           numero: data.data[0].numero,
         };
+        const newFuncionario = {
+          nome: data.data[0].responsavel
+        }
     
         setComputadores(arrayAnterior => [...arrayAnterior, newComputer]);
         console.log(computadores);
+        setFuncionarios(arrayAnterior => [...arrayAnterior, newFuncionario]);
         document.querySelectorAll("input").forEach(input => input.value = "");
         document.querySelectorAll("select").forEach(select => select.value = "");
         setSetores([]);
