@@ -1,22 +1,24 @@
-const fs = require('fs');
-const db = require('./database/db');
+const fs = require("fs");
+const db = require("./database/db");
 
 function populateTableIfEmpty(tableName, jsonFilePath) {
   try {
     // Read the JSON file synchronously
-    const data = fs.readFileSync(jsonFilePath, 'utf8');
+    const data = fs.readFileSync(jsonFilePath, "utf8");
 
     // Check if the table is already populated
     const rows = db.all(`SELECT COUNT(*) FROM ${tableName}`);
     if (Object.keys(rows).length === 0) {
       // Parse the JSON content
       const jsonData = JSON.parse(data);
-      let queryValues = '';
+      let queryValues = "";
 
       jsonData.forEach((item) => {
         // Adjust the code based on the structure of your JSON and database schema
-        if (tableName === 'secretarias') {
+        if (tableName === "secretarias") {
           queryValues += `('${item.nome}', '${item.sigla}'),`;
+        } else if (tableName === "funcionarios") {
+          queryValues += `('${item.nome}', '${item.setor_id}', '${item.funcao}', '${item.cargo}'),`;
         } else {
           queryValues += `('${item.nome}', '${item.sigla}', '${item.idSecretaria}'),`;
         }
@@ -25,12 +27,18 @@ function populateTableIfEmpty(tableName, jsonFilePath) {
       console.log(`Populating table '${tableName}'.\n`);
 
       // Execute the INSERT query
-      if (tableName === 'secretarias') {
+      if (tableName === "secretarias") {
         db.run(`
           INSERT INTO ${tableName} (nome, sigla) VALUES
           ${queryValues}
           ('', '');
         `);
+      } else if (tableName === "funcionarios") {
+        db.run(`
+        INSERT INTO ${tableName} (nome, setor_id, funcao, cargo) VALUES
+        ${queryValues}
+        ('', 1, '', '');
+      `);
       } else {
         db.run(`
           INSERT INTO ${tableName} (nome, sigla, secretaria_id) VALUES
@@ -49,10 +57,12 @@ function populateTableIfEmpty(tableName, jsonFilePath) {
 }
 
 // Specify the paths to the JSON files
-const jsonFileSecretariasPath = './../front-end/public/json/secretarias.json';
-const jsonFileSetoresPath = './../front-end/public/json/setores.json';
-
+const jsonFileSecretariasPath = "./../front-end/public/json/secretarias.json";
+const jsonFileSetoresPath = "./../front-end/public/json/setores.json";
+const jsonFuncionariosPath = "./../front-end/public/json/funcionarios.json";
 // Populate 'secretarias' table
-populateTableIfEmpty('secretarias', jsonFileSecretariasPath);
-populateTableIfEmpty('setores', jsonFileSetoresPath);
+populateTableIfEmpty("secretarias", jsonFileSecretariasPath);
+populateTableIfEmpty("setores", jsonFileSetoresPath);
+populateTableIfEmpty("funcionarios", jsonFuncionariosPath);
+
 // Populate 'setores' table

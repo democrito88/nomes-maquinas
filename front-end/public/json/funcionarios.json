@@ -1,0 +1,41 @@
+[
+  {
+    "id": "1",
+
+    "nome": "joão",
+
+    "setor_id": 8,
+
+    "funcao": "tecnico adminstrativo",
+
+    "cargo": "comissionado"
+  },
+
+  {
+    "id": "2",
+
+    "nome": "maria",
+
+    "setor_id": 4,
+
+    "funcao": "tecnico adminstrativo",
+
+    "cargo": "comissionado"
+  },
+
+  {
+    "id": "3",
+
+    "nome": "josé",
+
+    "setor_id": 7,
+
+    "funcao": "tecnico adminstrativo",
+
+    "cargo": "comissionado"
+  }
+
+
+]
+
+
