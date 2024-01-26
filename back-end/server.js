@@ -6,7 +6,7 @@ const bodyParser = require('body-parser'); //para conseguir receber requisiçõe
 const db = require('./database/db'); //conexão com o banco
 require('./inicializador');
 
-const localhost = '192.168.11.132';
+const localhost = '192.168.11.131';
 const portaFrontEnd = 3000;
 const port = 3001;
 
@@ -26,7 +26,7 @@ app.get('*', (req, res) => {
   FROM computadores
   JOIN setores ON setores.id = computadores.setor_id
   JOIN secretarias ON secretarias.id = setores.secretaria_id
-  LEFT JOIN funcionarios ON funcionarios.id = computadores.funcionarios_id
+  LEFT JOIN funcionarios ON funcionarios.id = computadores.funcionario_id
   ORDER BY computadores.id ASC`, (err, rows) => {
     if (err) {
       console.error(err.message);
@@ -49,7 +49,7 @@ app.post(`*`, (req, res) => {
   FROM computadores
   JOIN setores ON setores.id = computadores.setor_id
   JOIN secretarias ON secretarias.id = setores.secretaria_id
-  LEFT JOIN funcionarios ON funcionarios.id = computadores.funcionarios_id
+  LEFT JOIN funcionarios ON funcionarios.id = computadores.funcionario_id
   ORDER BY computadores.id DESC LIMIT 1`, (err, rows) => {
     if (err) {
       console.error(err.message);

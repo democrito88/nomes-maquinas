@@ -1,10 +1,10 @@
-import {QrScanner} from '@yudiel/react-qr-scanner';
+import {QrScanner} from 'react-qr-scanner';
 
 const Scanner = () => {
   return (
       <QrScanner
-          onDecode={(result) => console.log(result)}
-          onError={(error) => console.log(error?.message)}
+          onDecode={() => console.log()}
+          onError={() => console.log()}
       />
   );
 }
