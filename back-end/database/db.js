@@ -19,7 +19,9 @@ createTable(`
   CREATE TABLE IF NOT EXISTS secretarias (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     nome TEXT NOT NULL,
-    sigla TEXT NOT NULL
+    sigla TEXT NOT NULL,
+    codigo INTEGER
+
   );
 `, 'Secretarias');
 
@@ -28,6 +30,7 @@ createTable(`
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     nome TEXT NOT NULL,
     sigla TEXT NOT NULL,
+    codigo INTEGER,
     secretaria_id INTEGER,
     FOREIGN KEY (secretaria_id) REFERENCES secretarias(id)
   );

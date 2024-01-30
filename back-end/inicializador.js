@@ -16,11 +16,11 @@ function populateTableIfEmpty(tableName, jsonFilePath) {
       jsonData.forEach((item) => {
         // Adjust the code based on the structure of your JSON and database schema
         if (tableName === "secretarias") {
-          queryValues += `('${item.nome}', '${item.sigla}'),`;
+          queryValues += `('${item.nome}', '${item.sigla}', '${item.codigo}'),`;
         } else if (tableName === "funcionarios") {
           queryValues += `('${item.nome}', '${item.setor_id}', '${item.funcao}', '${item.cargo}'),`;
         } else {
-          queryValues += `('${item.nome}', '${item.sigla}', '${item.idSecretaria}'),`;
+          queryValues += `('${item.nome}', '${item.sigla}', '${item.codigo}', '${item.idSecretaria}'),`;
         }
       });
 
@@ -29,9 +29,9 @@ function populateTableIfEmpty(tableName, jsonFilePath) {
       // Execute the INSERT query
       if (tableName === "secretarias") {
         db.run(`
-          INSERT INTO ${tableName} (nome, sigla) VALUES
+          INSERT INTO ${tableName} (nome, sigla, codigo) VALUES
           ${queryValues}
-          ('', '');
+          ('', '', 1);
         `);
       } else if (tableName === "funcionarios") {
         db.run(`
@@ -41,9 +41,9 @@ function populateTableIfEmpty(tableName, jsonFilePath) {
       `);
       } else {
         db.run(`
-          INSERT INTO ${tableName} (nome, sigla, secretaria_id) VALUES
+          INSERT INTO ${tableName} (nome, sigla, codigo, secretaria_id) VALUES
           ${queryValues}
-          ('', '', 1);
+          ('', '', 1, 1);
         `);
       }
 
