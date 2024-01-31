@@ -17,7 +17,6 @@ function ModalComputador({handleClose, show, computador, funcionario}) {
                   <li>classe: {computador.classe}</li>
                   <li>número: {computador.numero}</li>
                   <li>status: {computador.status === 0 ? "a entregar" : "entregue"}</li>
-                  <li>status: {computador.sn}</li>
                   <li>IP: {computador.ip}</li>
                   <li>MAC: {computador.mac}</li>
                   <li>Nº serial do dispositivo: {computador.sn}</li>
@@ -26,7 +25,7 @@ function ModalComputador({handleClose, show, computador, funcionario}) {
                   <li>Nº serial do monitor: {computador.monitor_sn}</li>
               </ul>
               {
-              funcionario ? 
+              funcionario.nome ? 
               <ul>
                 <li>{funcionario.nome}</li>
                 <li>{funcionario.matricula}</li>

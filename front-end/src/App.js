@@ -20,7 +20,7 @@ function App() {
   const [computadores, setComputadores] = useState([]);
   const [funcionarios, setFuncionarios] = useState([]);
   const localhost = "localhost";
-  const serverHost = "192.168.11.131";
+  const serverHost = "192.168.1.19";
   const serverPort = 3001;
 
   useEffect(() => {
@@ -64,8 +64,20 @@ function App() {
             nomeSetor: resposta.data[0].nomeSetor,
             classe: resposta.data[0].classe,
             numero: resposta.data[0].numero,
+            ip: resposta.data[0].ip,
+            mac: resposta.data[0].mac,
+            sn: resposta.data[0].sn,
+            mouse_sn: resposta.data[0].mouse_sn,
+            teclado_sn: resposta.data[0].teclado_sn,
+            monitor_sn: resposta.data[0].monitor_sn
           };
           setComputadores((arrayAnterior) => [...arrayAnterior, newComputer]);
+
+          const newFuncionario = {
+            nome: resposta.data[0].responsavel
+          };
+          
+          setFuncionarios(arrayAnterior => [...arrayAnterior, newFuncionario]);
         }
       })
       .catch((error) => console.error(error));
@@ -125,6 +137,12 @@ function App() {
           nomeSetor: data.data[0].nomeSetor,
           classe: data.data[0].classe,
           numero: data.data[0].numero,
+          ip: data.data[0].ip,
+          mac: data.data[0].mac,
+          sn: data.data[0].sn,
+          mouse_sn: data.data[0].mouse_sn,
+          teclado_sn: data.data[0].teclado_sn,
+          monitor_sn: data.data[0].monitor_sn
         };
         const newFuncionario = {
           nome: data.data[0].responsavel,
@@ -166,7 +184,7 @@ function App() {
           <Form.Select name="setor_id" onChange={handleSetor}>
             {setores
               ? setores.map((setor) => (
-                  <option value={setor.codigo} key={setor.codigo}>
+                  <option value={setor.codigo} key={setor.id}>
                     {setor.sigla +
                       (setor.sigla === setor.nome ? `` : ` - ${setor.nome}`)}
                   </option>

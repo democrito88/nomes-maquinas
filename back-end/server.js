@@ -7,7 +7,7 @@ const db = require('./database/db'); //conexão com o banco
 const fs = require("fs"); //manipulador de arquivos
 require('./inicializador');
 
-const localhost = '192.168.11.131';
+const localhost = 'localhost';
 const portaFrontEnd = 3000;
 const port = 3001;
 

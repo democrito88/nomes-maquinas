@@ -57,9 +57,9 @@ function populateTableIfEmpty(tableName, jsonFilePath) {
 }
 
 // Specify the paths to the JSON files
-const jsonFileSecretariasPath = "./../front-end/public/json/secretarias.json";
-const jsonFileSetoresPath = "./../front-end/public/json/setores.json";
-const jsonFuncionariosPath = "./../front-end/public/json/funcionarios.json";
+const jsonFileSecretariasPath = "./json/secretarias.json";
+const jsonFileSetoresPath = "./json/setores.json";
+const jsonFuncionariosPath = "./json/funcionarios.json";
 // Populate 'secretarias' table
 populateTableIfEmpty("secretarias", jsonFileSecretariasPath);
 populateTableIfEmpty("setores", jsonFileSetoresPath);
