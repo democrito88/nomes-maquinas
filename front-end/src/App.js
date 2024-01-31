@@ -4,25 +4,9 @@ import { Button, Container, Form } from "react-bootstrap";
 import CopyToClipboardButton from "./Components/CopyToClipboardButton";
 import TabelaComputadores from "./Components/TabelaComputadores";
 import axios from "axios";
-import Scanner from "./Components/Scanner";
-function validarIPv4(ip) {
-  // Expressão regular para validar um endereço IPv4
-  var padraoIPv4 = /^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$/;
-
-  // Verifica se o padrão corresponde ao IP fornecido
-  var correspondencia = ip.match(padraoIPv4);
-
-  if (correspondencia) {
-      // Verifica se cada octeto está no intervalo correto (0 a 255)
-      if (correspondencia.slice(1).every(function (octeto) {
-          return parseInt(octeto, 10) >= 0 && parseInt(octeto, 10) <= 255;
-      })) {
-          return true;
-      }
-  }
-
-  return false;
-}
+import InputIPv4 from "./Components/InputIPv4";
+import InputMAC from "./Components/InputMAC";
+//import Scanner from "./Components/Scanner";
 
 function App() {
   const [secretarias, setSecretarias] = useState([]);
@@ -40,28 +24,49 @@ function App() {
   const serverPort = 3001;
 
   useEffect(() => {
-    fetch(`http://${localhost}:3000/json/secretarias.json`)
+    fetch(`http://${serverHost}:${serverPort}/json/secretarias.json`)
       .then((resposta) => resposta.json())
-      .then((dados) => setSecretarias(dados));
+      .then((dados) => setSecretarias(JSON.parse(dados)))
+      .catch(error => {
+        console.error(error);
+        setSecretarias([
+          {
+            id: 0,
+            codigo: 0,
+            sigla: "não foi possível estabelecer conexão com o servidor"
+          }
+        ]);
+      });
 
-    fetch(`http://${localhost}:3000/json/setores.json`)
+    fetch(`http://${serverHost}:${serverPort}/json/setores.json`)
       .then((resposta) => resposta.json())
-      .then((dados) => setTodosSetores(dados));
+      .then((dados) => setTodosSetores(JSON.parse(dados)))
+      .catch(error => {
+        console.error(error);
+        setTodosSetores([
+          {
+            id: 0,
+            codigo: 0,
+            sigla: "não foi possível estabelecer conexão com o servidor",
+            nome: "não foi possível estabelecer conexão com o servidor",
+          }
+        ]);
+      });
 
     axios
       .get(`http://${serverHost}:${serverPort}/`)
       .then((resposta) => {
-        const newComputer = {
-          id: resposta.data[0].id,
-          nome: resposta.data[0].nome,
-          nomeSecretaria: resposta.data[0].nomeSecretaria,
-          nomeSetor: resposta.data[0].nomeSetor,
-          classe: resposta.data[0].classe,
-          numero: resposta.data[0].numero,
-        };
-
-        console.log(newComputer);
-        setComputadores((arrayAnterior) => [...arrayAnterior, newComputer]);
+        if(resposta.data.length > 0){
+          const newComputer = {
+            id: resposta.data[0].id,
+            nome: resposta.data[0].nome,
+            nomeSecretaria: resposta.data[0].nomeSecretaria,
+            nomeSetor: resposta.data[0].nomeSetor,
+            classe: resposta.data[0].classe,
+            numero: resposta.data[0].numero,
+          };
+          setComputadores((arrayAnterior) => [...arrayAnterior, newComputer]);
+        }
       })
       .catch((error) => console.error(error));
   }, []);
@@ -126,7 +131,6 @@ function App() {
         };
 
         setComputadores((arrayAnterior) => [...arrayAnterior, newComputer]);
-        console.log(computadores);
         setFuncionarios((arrayAnterior) => [...arrayAnterior, newFuncionario]);
         document
           .querySelectorAll("input")
@@ -142,14 +146,6 @@ function App() {
         setNumero(0);
       })
       .catch((error) => console.error(error));
-  };
-
-  const handleIp = (e) => {
-   if(validarIPv4(e.target.value)){
-    document.getElementsByName("ip")[0].style = "border: 1px green";
-   } else{
-   document.getElementsByName("ip")[0].style = "border: 1px red";
-   }
   };
 
   return (
@@ -178,7 +174,7 @@ function App() {
               : ""}
           </Form.Select>
           <Form.Select name="classe" onChange={handleClasse}>
-            <option>Classe</option>
+            <option>Dispositivo</option>
             <option value="PC">Personal Computer</option>
             <option value="NTBK">Notebook</option>
             <option value="PRT">Impressora</option>
@@ -196,11 +192,11 @@ function App() {
             name="numero"
             type="number"
             onInput={handleNumero}
-            placeholder="número"
+            placeholder="número da máquina"
           />
-          <Form.Control name="mac" placeholder="mac" />
-          <Form.Control name="ip" placeholder="ip" onInput={handleIp} />
-          <Form.Control name="sn" placeholder="número serial" />
+          <InputMAC />
+          <InputIPv4 />
+          <Form.Control name="sn" placeholder="número serial da máquina" />
           <Form.Control
             name="tecladop_sn"
             placeholder="número serial do teclado"

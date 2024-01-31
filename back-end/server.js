@@ -4,6 +4,7 @@ const app = express();
 const cors = require('cors');
 const bodyParser = require('body-parser'); //para conseguir receber requisições POST
 const db = require('./database/db'); //conexão com o banco
+const fs = require("fs"); //manipulador de arquivos
 require('./inicializador');
 
 const localhost = '192.168.11.131';
@@ -21,6 +22,15 @@ app.use(cors(corsOptions), bodyParser.json());
 
 // Para requisições GET
 app.get('*', (req, res) => {
+
+  if(req.originalUrl === "/json/secretarias.json"){
+    return res.json(fs.readFileSync("./json/secretarias.json", "utf8"));
+  }
+
+  if(req.originalUrl === "/json/setores.json"){
+    return res.json(fs.readFileSync("./json/setores.json", "utf8"));
+  }
+
   //LEFT JOIN funcionarios ON funcionarios.id = computadores.funcionario_id
   db.all(`SELECT computadores.*, secretarias.sigla AS nomeSecretaria, setores.sigla AS nomeSetor, funcionarios.nome AS responsavel
   FROM computadores
@@ -39,7 +49,6 @@ app.get('*', (req, res) => {
 // Para requisições POSt
 app.post(`*`, (req, res) => {
   let formData = req.body;
-  console.log(req.body);
 
   db.run(`INSERT INTO computadores ('nome', 'setor_id', 'classe', 'numero', 'mac', 'ip', 'sn', 'teclado_sn', 'mouse_sn', 'monitor_sn', 'status') 
   VALUES('${formData.nome}', '${formData.setor_id}', '${formData.classe}', '${formData.numero}', '${formData.mac}', 
