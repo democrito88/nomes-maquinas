@@ -16,7 +16,7 @@ export default function LinhaTabela({computador, funcionario}){
                 <td>{computador.nomeSetor}</td>
                 <td>{computador.classe}</td>
                 <td>{computador.numero}</td>
-                <td>{computador.status === 0 ? "a entregar" : "entregue"}</td>
+                <td>{computador.status ? `entregue` : "a entregar"}</td>
                 <td>{funcionario ? funcionario.responsavel : "-"}</td>
                 <td>{computador.linkTermo ?? "-"}</td>
                 <td>

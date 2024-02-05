@@ -19,8 +19,8 @@ function App() {
   const [numero, setNumero] = useState(0);
   const [computadores, setComputadores] = useState([]);
   const [funcionarios, setFuncionarios] = useState([]);
-  const localhost = "localhost";
-  const serverHost = "192.168.1.19";
+  const localhost = "192.168.11.131";
+  const serverHost = "192.168.11.131";
   const serverPort = 3001;
 
   useEffect(() => {
