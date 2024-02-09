@@ -54,7 +54,7 @@ app.post(`*`, (req, res) => {
   VALUES('${formData.nome}', '${formData.setor_id}', '${formData.classe}', '${formData.numero}', '${formData.mac}', 
   '${formData.ip}', '${formData.sn}', '${formData.teclado_sn}', '${formData.mouse_sn}', '${formData.monitor_sn}', 0);`);  
 
-  db.all(`SELECT computadores.id, computadores.nome, secretarias.sigla AS nomeSecretaria, setores.sigla AS nomeSetor, computadores.classe, computadores.numero, funcionarios.nome AS responsavel
+  db.all(`SELECT computadores.*, secretarias.sigla AS nomeSecretaria, setores.sigla AS nomeSetor, funcionarios.nome AS responsavel
   FROM computadores
   JOIN setores ON setores.id = computadores.setor_id
   JOIN secretarias ON secretarias.id = setores.secretaria_id

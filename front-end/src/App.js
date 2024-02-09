@@ -144,6 +144,8 @@ function App() {
           teclado_sn: data.data[0].teclado_sn,
           monitor_sn: data.data[0].monitor_sn
         };
+
+        console.log(data);
         const newFuncionario = {
           nome: data.data[0].responsavel,
         };

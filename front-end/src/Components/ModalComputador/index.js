@@ -9,6 +9,7 @@ function ModalComputador({handleClose, show, computador, funcionario}) {
         </Modal.Header>
         <Modal.Body>
             <div className='detalhes'>
+              <h4>Detalhes do dispositivo</h4>
               <ul>
                   <li>id: {computador.id}</li>
                   <li>nome: {computador.nome}</li>
@@ -26,12 +27,16 @@ function ModalComputador({handleClose, show, computador, funcionario}) {
               </ul>
               {
               funcionario.nome ? 
-              <ul>
-                <li>{funcionario.nome}</li>
-                <li>{funcionario.matricula}</li>
-                <li>{funcionario.setor}</li>
-                <li>{funcionario.funcao}</li>
-              </ul>
+              <div>
+                <hr />
+                <h4>Detalhes do funcionáriuo responsável</h4>
+                <ul>
+                  <li>{funcionario.nome}</li>
+                  <li>{funcionario.matricula}</li>
+                  <li>{funcionario.setor}</li>
+                  <li>{funcionario.funcao}</li>
+                </ul>
+              </div>
               : 
               <p>Este dispositivo ainda não está associado a nenhum funcionario.</p>
               }

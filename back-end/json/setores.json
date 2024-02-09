@@ -410,13 +410,13 @@
         "codigo": 1,
         "nome": "Controladoria Geral do Município",
         "sigla": "CGM",
-        "idSecretaria": 14
+        "idSecretaria": 15
     },
     {
         "id": 60,
         "codigo": 1,
         "nome": "Secretaria de Planejamento e Gestão Estratégica",
         "sigla": "SEPLAG",
-        "idSecretaria": 15
+        "idSecretaria": 16
     }
 ]
