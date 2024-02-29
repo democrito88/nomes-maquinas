@@ -1,11 +1,9 @@
 import { Container } from "react-bootstrap";
 import TabelaComputadores from "../Components/TabelaComputadores";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import axios from "axios";
 
-export default function ListaDispositivos(){
-    const [computadores, setComputadores] = useState([]);
-    const [funcionarios, setFuncionarios] = useState([]);
+export default function ListaDispositivos({computadores, funcionarios, setComputadores, setFuncionarios}){
     const serverHost = "192.168.11.131";
     const serverPort = 3001;
 
@@ -42,7 +40,7 @@ export default function ListaDispositivos(){
 
     return(
         <Container>
-        {computadores ? (
+        {computadores.length > 0 ? (
           <TabelaComputadores
             computadores={computadores}
             funcionarios={funcionarios}

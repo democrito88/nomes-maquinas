@@ -5,6 +5,11 @@ const Scanner = () => {
       <QrScanner
           onDecode={(result) => console.log(result)}
           onError={(error) => console.log(error?.message)}
+          constraints={{
+            audio: true,
+            video: { facingMode: "environment" }
+          }}
+            
       />
   );
 }

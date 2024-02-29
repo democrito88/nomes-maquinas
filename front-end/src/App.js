@@ -14,8 +14,13 @@ function App() {
     <BrowserRouter>
       <NavBar/>
       <Routes>
-        <Route path="/" element={<Principal />} children={[setComputadores, setFuncionarios]} />
-        <Route path="/lista" element={<ListaDispositivos children={[computadores, funcionarios]}/>} />
+        <Route path="/" Component={() => <Principal setComputadores={setComputadores} setFuncionarios={setFuncionarios}/>} />
+        <Route path="/lista" Component={() => <ListaDispositivos 
+                                                computadores={computadores} 
+                                                funcionarios={funcionarios}
+                                                setComputadores={setComputadores}
+                                                setFuncionarios={setFuncionarios}
+                                                />} />
         <Route path="/scan" element={<QRScanner />} />
       </Routes>
     </BrowserRouter>
