@@ -1,422 +1,468 @@
 [
-    {
-        "id": 1,
-        "codigo": 1,
-        "nome": "Almoxarifado",
-        "sigla": "Almoxarifado",
-        "idSecretaria": 1
-    },
-    {
-        "id": 2,
-        "codigo": 2,
-        "nome": "Coordenadoria Geral de Informática",
-        "sigla": "CGI",
-        "idSecretaria": 1
-    },
-    {
-        "id": 3,
-        "codigo": 3,
-        "nome": "Compras",
-        "sigla": "Compras",
-        "idSecretaria": 1
-    },
-    {
-        "id": 4,
-        "codigo": 4,
-        "nome": "Diretoria Geral Administrativo Financeira",
-        "sigla": "DGAF",
-        "idSecretaria": 1
-    },
-    {
-        "id": 5,
-        "codigo": 5,
-        "nome": "Diretoria Geral Financeira",
-        "sigla": "DGF",
-        "idSecretaria": 1
-    },
-    {
-        "id": 6,
-        "codigo": 6,
-        "nome": "Contabilidade",
-        "sigla": "Contabilidade",
-        "idSecretaria": 1
-    },
-    {
-        "id": 7,
-        "codigo": 7,
-        "nome": "Contabilidade (Arquivo)",
-        "sigla": "Contabilidade (Arquivo)",
-        "idSecretaria": 1
-    },
-    {
-        "id": 8,
-        "codigo": 8,
-        "nome": "Tesouraria",
-        "sigla": "Tesouraria",
-        "idSecretaria": 1
-    },
-    {
-        "id": 9,
-        "codigo": 9,
-        "nome": "Superintendência Administrativa Tributária",
-        "sigla": "SAT",
-        "idSecretaria": 1
-    },
-    {
-        "id": 10,
-        "codigo": 10,
-        "nome": "Diretoria Geral Tributária M.",
-        "sigla": "DGTM",
-        "idSecretaria": 1
-    },
-    {
-        "id": 11,
-        "codigo": 11,
-        "nome": "Divisão de Apoio Administrativo",
-        "sigla": "DAA",
-        "idSecretaria": 1
-    },
-    {
-        "id": 12,
-        "codigo": 12,
-        "nome": "Diretoria de Gerência de Atendimento ao Contribuinte",
-        "sigla": "DGAC",
-        "idSecretaria": 1
-    },
-    {
-        "id": 13,
-        "codigo": 13,
-        "nome": "Gerência de Atendimento ao Contribuinte",
-        "sigla": "GAC",
-        "idSecretaria": 1
-    },
-    {
-        "id": 14,
-        "codigo": 14,
-        "nome": "CAF",
-        "sigla": "CAF",
-        "idSecretaria": 1
-    },
-    {
-        "id": 15,
-        "codigo": 15,
-        "nome": "DGTI",
-        "sigla": "DGTI",
-        "idSecretaria": 1
-    },
-    {
-        "id": 16,
-        "codigo": 16,
-        "nome": "DCI",
-        "sigla": "DCI",
-        "idSecretaria": 1
-    },
-    {
-        "id": 17,
-        "codigo": 17,
-        "nome": "DLC",
-        "sigla": "DLC",
-        "idSecretaria": 1
-    },
-    {
-        "id": 18,
-        "codigo": 18,
-        "nome": "Cartografia",
-        "sigla": "Cartografia",
-        "idSecretaria": 1
-    },
-    {
-        "id": 19,
-        "codigo": 19,
-        "nome": "FORAL",
-        "sigla": "FORAL",
-        "idSecretaria": 1
-    },
-    {
-        "id": 20,
-        "codigo": 20,
-        "nome": "CAVAL",
-        "sigla": "CAVAL",
-        "idSecretaria": 1
-    },
-    {
-        "id": 21,
-        "codigo": 21,
-        "nome": "Gabinete",
-        "sigla": "Gabinete",
-        "idSecretaria": 1
-    },
-    {
-        "id": 22,
-        "codigo": 1,
-        "nome": "Gabinete",
-        "sigla": "Gabinete",
-        "idSecretaria": 2
-    },
-    {
-        "id": 23,
-        "codigo": 2,
-        "nome": "DAP-RI",
-        "sigla": "DAP-RI",
-        "idSecretaria": 2
-    },
-    {
-        "id": 24,
-        "codigo": 3,
-        "nome": "DAP Certidões",
-        "sigla": "DAP Certidões",
-        "idSecretaria": 2
-    },
-    {
-        "id": 25,
-        "codigo": 4,
-        "nome": "DAP - Convênios",
-        "sigla": "DAP - Convênios",
-        "idSecretaria": 2
-    },
-    {
-        "id": 26,
-        "codigo": 5,
-        "nome": "DRF",
-        "sigla": "DRF",
-        "idSecretaria": 2
-    },
-    {
-        "id": 27,
-        "codigo": 6,
-        "nome": "DRF - Arquivo",
-        "sigla": "DRF - Arquivo",
-        "idSecretaria": 2
-    },
-    {
-        "id": 28,
-        "codigo": 7,
-        "nome": "DICPA",
-        "sigla": "DICPA",
-        "idSecretaria": 2
-    },
-    {
-        "id": 29,
-        "codigo": 8,
-        "nome": "DADP",
-        "sigla": "DADP",
-        "idSecretaria": 2
-    },
-    {
-        "id": 30,
-        "codigo": 9,
-        "nome": "DCSD",
-        "sigla": "DCSD",
-        "idSecretaria": 2
-    },
-    {
-        "id": 31,
-        "codigo": 10,
-        "nome": "DSMT",
-        "sigla": "DSMT",
-        "idSecretaria": 2
-    },
-    {
-        "id": 32,
-        "codigo": 11,
-        "nome": "DGAFP",
-        "sigla": "DGAFP",
-        "idSecretaria": 2
-    },
-    {
-        "id": 33,
-        "codigo": 12,
-        "nome": "DIF",
-        "sigla": "DIF",
-        "idSecretaria": 2
-    },
-    {
-        "id": 34,
-        "codigo": 13,
-        "nome": "DGAFP - INSS",
-        "sigla": "DGAFP - INSS",
-        "idSecretaria": 2
-    },
-    {
-        "id": 35,
-        "codigo": 14,
-        "nome": "DPFP",
-        "sigla": "DPFP",
-        "idSecretaria": 2
-    },
-    {
-        "id": 36,
-        "codigo": 15,
-        "nome": "DPSA",
-        "sigla": "DPSA",
-        "idSecretaria": 2
-    },
-    {
-        "id": 37,
-        "codigo": 16,
-        "nome": "DCSD - Estágio",
-        "sigla": "DCSD - Estágio",
-        "idSecretaria": 2
-    },
-    {
-        "id": 38,
-        "codigo": 17,
-        "nome": "CPL",
-        "sigla": "CPL",
-        "idSecretaria": 2
-    },
-    {
-        "id": 39,
-        "codigo": 18,
-        "nome": "CPL I",
-        "sigla": "CPL I",
-        "idSecretaria": 2
-    },
-    {
-        "id": 40,
-        "codigo": 19,
-        "nome": "CPL II",
-        "sigla": "CPL II",
-        "idSecretaria": 2
-    },
-    {
-        "id": 41,
-        "codigo": 20,
-        "nome": "CPL - Protocolo",
-        "sigla": "CPL - Protocolo",
-        "idSecretaria": 2
-    },
-    {
-        "id": 42,
-        "codigo": 21,
-        "nome": "CPL - Obras",
-        "sigla": "CPL - Obras",
-        "idSecretaria": 2
-    },
-    {
-        "id": 43,
-        "codigo": 22,
-        "nome": "Protocolo",
-        "sigla": "Protocolo",
-        "idSecretaria": 2
-    },
-    {
-        "id": 44,
-        "codigo": 23,
-        "nome": "Diretoria Geral de Recursos Humanos",
-        "sigla": "DGRH",
-        "idSecretaria": 2
-    },
-    {
-        "id": 45,
-        "codigo": 24,
-        "nome": "Assessoria Jurídica",
-        "sigla": "AJ",
-        "idSecretaria": 2
-    },
-    {
-        "id": 46,
-        "codigo": 25,
-        "nome": "Secretaria Executiva de Gestão de Pessoas",
-        "sigla": "SEGPA",
-        "idSecretaria": 2
-    },
-    {
-        "id": 47,
-        "codigo": 26,
-        "nome": "Secretaria Executiva de Gestão e Administração",
-        "sigla": "SEGA",
-        "idSecretaria": 2
-    },
-    {
-        "id": 48,
-        "codigo": 1,
-        "nome": "Secretaria de Governo",
-        "sigla": "SEGOV",
-        "idSecretaria": 3
-    },
-    {
-        "id": 49,
-        "codigo": 2,
-        "nome": "Secretaria de Desenvolvimento Econômico e Teconologia da Informação",
-        "sigla": "SEDEIT",
-        "idSecretaria": 4
-    },
-    {
-        "id": 50,
-        "codigo": 1,
-        "nome": "Procuradoria Geral do Município",
-        "sigla": "PGM",
-        "idSecretaria": 5
-    },
-    {
-        "id": 51,
-        "codigo": 1,
-        "nome": "Secretaria de Obras",
-        "sigla": "SecObras",
-        "idSecretaria": 6
-    },
-    {
-        "id": 52,
-        "codigo": 1,
-        "nome": "Secretaria Mobilidade Urbana",
-        "sigla": "SMU",
-        "idSecretaria": 7
-    },
-    {
-        "id": 53,
-        "codigo": 1,
-        "nome": "Secretaria de Comunicação",
-        "sigla": "SECOM",
-        "idSecretaria": 8
-    },
-    {
-        "id": 54,
-        "codigo": 1,
-        "nome": "Secretaria de Segurança Cidadã",
-        "sigla": "SSC",
-        "idSecretaria": 9
-    },
-    {
-        "id": 55,
-        "codigo": 1,
-        "nome": "secretaria de Gerência Urbana",
-        "sigla": "SGU",
-        "idSecretaria": 10
-    },
-    {
-        "id": 56,
-        "codigo": 1,
-        "nome": "Secretaria de Patrimônio, Cultura e Turismo",
-        "sigla": "SEPACTUR",
-        "idSecretaria": 11
-    },
-    {
-        "id": 57,
-        "codigo": 1,
-        "nome": "Secretaria de Educação",
-        "sigla": "SEDUC",
-        "idSecretaria": 12
-    },
-    {
-        "id": 58,
-        "codigo": 1,
-        "nome": "Secretaria de Meio Ambiente Planejamento Urbano",
-        "sigla": "SEMAPU",
-        "idSecretaria": 13
-    },
-    {
-        "id": 59,
-        "codigo": 1,
-        "nome": "Controladoria Geral do Município",
-        "sigla": "CGM",
-        "idSecretaria": 15
-    },
-    {
-        "id": 60,
-        "codigo": 1,
-        "nome": "Secretaria de Planejamento e Gestão Estratégica",
-        "sigla": "SEPLAG",
-        "idSecretaria": 16
-    }
+  {
+    "id": 1,
+    "codigo": 1,
+    "nome": "Almoxarifado",
+    "sigla": "Almoxarifado",
+    "idSecretaria": 1
+  },
+  {
+    "id": 2,
+    "codigo": 2,
+    "nome": "Coordenadoria Geral de Informática",
+    "sigla": "CGI",
+    "idSecretaria": 1
+  },
+  {
+    "id": 3,
+    "codigo": 3,
+    "nome": "Compras",
+    "sigla": "Compras",
+    "idSecretaria": 1
+  },
+  {
+    "id": 4,
+    "codigo": 4,
+    "nome": "Diretoria Geral Administrativo Financeira",
+    "sigla": "DGAF",
+    "idSecretaria": 1
+  },
+  {
+    "id": 5,
+    "codigo": 5,
+    "nome": "Diretoria Geral Financeira",
+    "sigla": "DGF",
+    "idSecretaria": 1
+  },
+  {
+    "id": 6,
+    "codigo": 6,
+    "nome": "Contabilidade",
+    "sigla": "Contabilidade",
+    "idSecretaria": 1
+  },
+  {
+    "id": 7,
+    "codigo": 7,
+    "nome": "Contabilidade (Arquivo)",
+    "sigla": "Contabilidade (Arquivo)",
+    "idSecretaria": 1
+  },
+  {
+    "id": 8,
+    "codigo": 8,
+    "nome": "Tesouraria",
+    "sigla": "Tesouraria",
+    "idSecretaria": 1
+  },
+  {
+    "id": 9,
+    "codigo": 9,
+    "nome": "Superintendência Administrativa Tributária",
+    "sigla": "SAT",
+    "idSecretaria": 1
+  },
+  {
+    "id": 10,
+    "codigo": 10,
+    "nome": "Diretoria Geral Tributária M.",
+    "sigla": "DGTM",
+    "idSecretaria": 1
+  },
+  {
+    "id": 11,
+    "codigo": 11,
+    "nome": "Divisão de Apoio Administrativo",
+    "sigla": "DAA",
+    "idSecretaria": 1
+  },
+  {
+    "id": 12,
+    "codigo": 12,
+    "nome": "Diretoria de Gerência de Atendimento ao Contribuinte",
+    "sigla": "DGAC",
+    "idSecretaria": 1
+  },
+  {
+    "id": 13,
+    "codigo": 13,
+    "nome": "Gerência de Atendimento ao Contribuinte",
+    "sigla": "GAC",
+    "idSecretaria": 1
+  },
+  {
+    "id": 14,
+    "codigo": 14,
+    "nome": "CAF",
+    "sigla": "CAF",
+    "idSecretaria": 1
+  },
+  {
+    "id": 15,
+    "codigo": 15,
+    "nome": "DGTI",
+    "sigla": "DGTI",
+    "idSecretaria": 1
+  },
+  {
+    "id": 16,
+    "codigo": 16,
+    "nome": "DCI",
+    "sigla": "DCI",
+    "idSecretaria": 1
+  },
+  {
+    "id": 17,
+    "codigo": 17,
+    "nome": "DLC",
+    "sigla": "DLC",
+    "idSecretaria": 1
+  },
+  {
+    "id": 18,
+    "codigo": 18,
+    "nome": "Cartografia",
+    "sigla": "Cartografia",
+    "idSecretaria": 1
+  },
+  {
+    "id": 19,
+    "codigo": 19,
+    "nome": "FORAL",
+    "sigla": "FORAL",
+    "idSecretaria": 1
+  },
+  {
+    "id": 20,
+    "codigo": 20,
+    "nome": "CAVAL",
+    "sigla": "CAVAL",
+    "idSecretaria": 1
+  },
+  {
+    "id": 21,
+    "codigo": 21,
+    "nome": "Gabinete",
+    "sigla": "Gabinete",
+    "idSecretaria": 1
+  },
+  {
+    "id": 22,
+    "codigo": 1,
+    "nome": "Gabinete",
+    "sigla": "Gabinete",
+    "idSecretaria": 2
+  },
+  {
+    "id": 23,
+    "codigo": 2,
+    "nome": "DAP-RI",
+    "sigla": "DAP-RI",
+    "idSecretaria": 2
+  },
+  {
+    "id": 24,
+    "codigo": 3,
+    "nome": "DAP Certidões",
+    "sigla": "DAP Certidões",
+    "idSecretaria": 2
+  },
+  {
+    "id": 25,
+    "codigo": 4,
+    "nome": "DAP - Convênios",
+    "sigla": "DAP - Convênios",
+    "idSecretaria": 2
+  },
+  {
+    "id": 26,
+    "codigo": 5,
+    "nome": "DRF",
+    "sigla": "DRF",
+    "idSecretaria": 2
+  },
+  {
+    "id": 27,
+    "codigo": 6,
+    "nome": "DRF - Arquivo",
+    "sigla": "DRF - Arquivo",
+    "idSecretaria": 2
+  },
+  {
+    "id": 28,
+    "codigo": 7,
+    "nome": "DICPA",
+    "sigla": "DICPA",
+    "idSecretaria": 2
+  },
+  {
+    "id": 29,
+    "codigo": 8,
+    "nome": "DADP",
+    "sigla": "DADP",
+    "idSecretaria": 2
+  },
+  {
+    "id": 30,
+    "codigo": 9,
+    "nome": "DCSD",
+    "sigla": "DCSD",
+    "idSecretaria": 2
+  },
+  {
+    "id": 31,
+    "codigo": 10,
+    "nome": "DSMT",
+    "sigla": "DSMT",
+    "idSecretaria": 2
+  },
+  {
+    "id": 32,
+    "codigo": 11,
+    "nome": "DGAFP",
+    "sigla": "DGAFP",
+    "idSecretaria": 2
+  },
+  {
+    "id": 33,
+    "codigo": 12,
+    "nome": "DIF",
+    "sigla": "DIF",
+    "idSecretaria": 2
+  },
+  {
+    "id": 34,
+    "codigo": 13,
+    "nome": "DGAFP - INSS",
+    "sigla": "DGAFP - INSS",
+    "idSecretaria": 2
+  },
+  {
+    "id": 35,
+    "codigo": 14,
+    "nome": "DPFP",
+    "sigla": "DPFP",
+    "idSecretaria": 2
+  },
+  {
+    "id": 36,
+    "codigo": 15,
+    "nome": "DPSA",
+    "sigla": "DPSA",
+    "idSecretaria": 2
+  },
+  {
+    "id": 37,
+    "codigo": 16,
+    "nome": "DCSD - Estágio",
+    "sigla": "DCSD - Estágio",
+    "idSecretaria": 2
+  },
+  {
+    "id": 38,
+    "codigo": 17,
+    "nome": "CPL",
+    "sigla": "CPL",
+    "idSecretaria": 2
+  },
+  {
+    "id": 39,
+    "codigo": 18,
+    "nome": "CPL I",
+    "sigla": "CPL I",
+    "idSecretaria": 2
+  },
+  {
+    "id": 40,
+    "codigo": 19,
+    "nome": "CPL II",
+    "sigla": "CPL II",
+    "idSecretaria": 2
+  },
+  {
+    "id": 41,
+    "codigo": 20,
+    "nome": "CPL - Protocolo",
+    "sigla": "CPL - Protocolo",
+    "idSecretaria": 2
+  },
+  {
+    "id": 42,
+    "codigo": 21,
+    "nome": "CPL - Obras",
+    "sigla": "CPL - Obras",
+    "idSecretaria": 2
+  },
+  {
+    "id": 43,
+    "codigo": 22,
+    "nome": "Protocolo",
+    "sigla": "Protocolo",
+    "idSecretaria": 2
+  },
+  {
+    "id": 44,
+    "codigo": 23,
+    "nome": "Diretoria Geral de Recursos Humanos",
+    "sigla": "DGRH",
+    "idSecretaria": 2
+  },
+  {
+    "id": 45,
+    "codigo": 24,
+    "nome": "Assessoria Jurídica",
+    "sigla": "AJ",
+    "idSecretaria": 2
+  },
+  {
+    "id": 46,
+    "codigo": 25,
+    "nome": "Secretaria Executiva de Gestão de Pessoas",
+    "sigla": "SEGPA",
+    "idSecretaria": 2
+  },
+  {
+    "id": 47,
+    "codigo": 26,
+    "nome": "Secretaria Executiva de Gestão e Administração",
+    "sigla": "SEGA",
+    "idSecretaria": 2
+  },
+  {
+    "id": 48,
+    "codigo": 1,
+    "nome": "Secretaria de Governo",
+    "sigla": "SEGOV",
+    "idSecretaria": 3
+  },
+  {
+    "id": 49,
+    "codigo": 2,
+    "nome": "Secretaria de Desenvolvimento Econômico e Teconologia da Informação",
+    "sigla": "SEDEIT",
+    "idSecretaria": 4
+  },
+  {
+    "id": 50,
+    "codigo": 1,
+    "nome": "Procuradoria Geral do Município",
+    "sigla": "PGM",
+    "idSecretaria": 5
+  },
+  {
+    "id": 51,
+    "codigo": 1,
+    "nome": "Secretaria de Obras",
+    "sigla": "SecObras",
+    "idSecretaria": 6
+  },
+  {
+    "id": 52,
+    "codigo": 1,
+    "nome": "Secretaria Mobilidade Urbana",
+    "sigla": "SMU",
+    "idSecretaria": 7
+  },
+  {
+    "id": 53,
+    "codigo": 1,
+    "nome": "Secretaria de Comunicação",
+    "sigla": "SECOM",
+    "idSecretaria": 8
+  },
+  {
+    "id": 54,
+    "codigo": 1,
+    "nome": "Secretaria de Segurança Cidadã",
+    "sigla": "SSC",
+    "idSecretaria": 9
+  },
+  {
+    "id": 55,
+    "codigo": 1,
+    "nome": "secretaria de Gerência Urbana",
+    "sigla": "SGU",
+    "idSecretaria": 10
+  },
+  {
+    "id": 56,
+    "codigo": 1,
+    "nome": "Secretaria de Patrimônio, Cultura e Turismo",
+    "sigla": "SEPACTUR",
+    "idSecretaria": 11
+  },
+  {
+    "id": 57,
+    "codigo": 1,
+    "nome": "Secretaria de Educação",
+    "sigla": "SEDUC",
+    "idSecretaria": 12
+  },
+  {
+    "id": 58,
+    "codigo": 1,
+    "nome": "Secretaria de Meio Ambiente Planejamento Urbano",
+    "sigla": "SEMAPU",
+    "idSecretaria": 13
+  },
+  {
+    "id": 59,
+    "codigo": 1,
+    "nome": "Controladoria Geral do Município",
+    "sigla": "CGM",
+    "idSecretaria": 15
+  },
+  {
+    "id": 60,
+    "codigo": 1,
+    "nome": "Secretaria de Planejamento e Gestão Estratégica",
+    "sigla": "SEPLAG",
+    "idSecretaria": 16
+  },
+  {
+    "id": 61,
+    "codigo": 2,
+    "nome": "Assesoria",
+    "sigla": "Assesoria",
+    "idSecretaria": 10
+  },
+
+  {
+    "id": 62,
+    "codigo": 3,
+    "nome": "SEMU(Licitações)",
+    "sigla": "SEMU(Licitação)",
+    "idSecretaria": 10
+  },
+
+  {
+    "id": 63,
+    "codigo": 4,
+    "nome": "Drenagem",
+    "sigla": "Drenagem",
+    "idSecretaria": 10
+  },
+{
+    "id": 64,
+    "codigo": 5,
+    "nome": "DGLU(Contratos)",
+    "sigla": "DGLU(Contratos)",
+    "idSecretaria": 10
+},
+
+{
+    "id": 65,
+    "codigo": 6,
+    "nome": "DLGU(Monitoramento)",
+    "sigla": "DLGU(Monitoramento)",
+    "idSecretaria": 10
+},
+{
+    "id": 66,
+    "codigo": 7,
+    "nome": "DGLU(Diretor)",
+    "sigla": "DGLU(Diretor)",
+    "idSecretaria": 10
+
+}
 ]
