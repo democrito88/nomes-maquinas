@@ -141,324 +141,688 @@
     },
     {
         "id": 21,
-        "codigo": 21,
+        "codigo": 23,
         "nome": "Gabinete",
         "sigla": "Gabinete",
         "idSecretaria": 1
     },
     {
         "id": 22,
+        "codigo": 24,
+        "nome": "Procuradoria Municipal de Fazenda",
+        "sigla": "PFM",
+        "idSecretaria": 1
+    },
+    {
+        "id": 23,
         "codigo": 1,
         "nome": "Gabinete",
         "sigla": "Gabinete",
         "idSecretaria": 2
     },
     {
-        "id": 23,
+        "id": 24,
         "codigo": 2,
         "nome": "DAP-RI",
         "sigla": "DAP-RI",
         "idSecretaria": 2
     },
     {
-        "id": 24,
+        "id": 25,
         "codigo": 3,
-        "nome": "DAP Certidões",
-        "sigla": "DAP Certidões",
+        "nome": "DAP - Certidões",
+        "sigla": "DAP - Certidões",
         "idSecretaria": 2
     },
     {
-        "id": 25,
+        "id": 26,
         "codigo": 4,
         "nome": "DAP - Convênios",
         "sigla": "DAP - Convênios",
         "idSecretaria": 2
     },
     {
-        "id": 26,
+        "id": 27,
         "codigo": 5,
         "nome": "DRF",
         "sigla": "DRF",
         "idSecretaria": 2
     },
     {
-        "id": 27,
+        "id": 28,
         "codigo": 6,
         "nome": "DRF - Arquivo",
         "sigla": "DRF - Arquivo",
         "idSecretaria": 2
     },
     {
-        "id": 28,
+        "id": 29,
         "codigo": 7,
         "nome": "DICPA",
         "sigla": "DICPA",
         "idSecretaria": 2
     },
     {
-        "id": 29,
+        "id": 30,
         "codigo": 8,
         "nome": "DADP",
         "sigla": "DADP",
         "idSecretaria": 2
     },
     {
-        "id": 30,
+        "id": 31,
         "codigo": 9,
         "nome": "DCSD",
         "sigla": "DCSD",
         "idSecretaria": 2
     },
     {
-        "id": 31,
+        "id": 32,
         "codigo": 10,
         "nome": "DSMT",
         "sigla": "DSMT",
         "idSecretaria": 2
     },
     {
-        "id": 32,
+        "id": 33,
         "codigo": 11,
         "nome": "DGAFP",
         "sigla": "DGAFP",
         "idSecretaria": 2
     },
     {
-        "id": 33,
+        "id": 34,
         "codigo": 12,
         "nome": "DIF",
         "sigla": "DIF",
         "idSecretaria": 2
     },
     {
-        "id": 34,
+        "id": 35,
         "codigo": 13,
         "nome": "DGAFP - INSS",
         "sigla": "DGAFP - INSS",
         "idSecretaria": 2
     },
     {
-        "id": 35,
+        "id": 36,
         "codigo": 14,
         "nome": "DPFP",
         "sigla": "DPFP",
         "idSecretaria": 2
     },
     {
-        "id": 36,
+        "id": 37,
         "codigo": 15,
         "nome": "DPSA",
         "sigla": "DPSA",
         "idSecretaria": 2
     },
     {
-        "id": 37,
+        "id": 38,
         "codigo": 16,
         "nome": "DCSD - Estágio",
         "sigla": "DCSD - Estágio",
         "idSecretaria": 2
     },
     {
-        "id": 38,
+        "id": 39,
         "codigo": 17,
         "nome": "CPL",
         "sigla": "CPL",
         "idSecretaria": 2
     },
     {
-        "id": 39,
+        "id": 40,
         "codigo": 18,
         "nome": "CPL I",
         "sigla": "CPL I",
         "idSecretaria": 2
     },
     {
-        "id": 40,
+        "id": 41,
         "codigo": 19,
         "nome": "CPL II",
         "sigla": "CPL II",
         "idSecretaria": 2
     },
     {
-        "id": 41,
+        "id": 42,
         "codigo": 20,
         "nome": "CPL - Protocolo",
         "sigla": "CPL - Protocolo",
         "idSecretaria": 2
     },
     {
-        "id": 42,
+        "id": 43,
         "codigo": 21,
         "nome": "CPL - Obras",
         "sigla": "CPL - Obras",
         "idSecretaria": 2
     },
     {
-        "id": 43,
-        "codigo": 22,
+        "id": 44,
+        "codigo": 23,
         "nome": "Protocolo",
         "sigla": "Protocolo",
         "idSecretaria": 2
     },
     {
-        "id": 44,
-        "codigo": 23,
+        "id": 45,
+        "codigo": 24,
         "nome": "Diretoria Geral de Recursos Humanos",
         "sigla": "DGRH",
         "idSecretaria": 2
     },
     {
-        "id": 45,
-        "codigo": 24,
+        "id": 46,
+        "codigo": 25,
         "nome": "Assessoria Jurídica",
         "sigla": "AJ",
         "idSecretaria": 2
     },
     {
-        "id": 46,
-        "codigo": 25,
+        "id": 47,
+        "codigo": 26,
         "nome": "Secretaria Executiva de Gestão de Pessoas",
         "sigla": "SEGPA",
         "idSecretaria": 2
     },
     {
-        "id": 47,
-        "codigo": 26,
+        "id": 48,
+        "codigo": 27,
         "nome": "Secretaria Executiva de Gestão e Administração",
         "sigla": "SEGA",
         "idSecretaria": 2
     },
     {
-        "id": 48,
-        "codigo": 1,
-        "nome": "Secretaria de Governo",
-        "sigla": "SEGOV",
-        "idSecretaria": 3
+        "id": 49,
+        "codigo": 28,
+        "nome": "Junta Médica",
+        "sigla": "JM",
+        "idSecretaria": 2
     },
     {
         "id": 49,
-        "codigo": 2,
-        "nome": "Secretaria de Desenvolvimento Econômico e Teconologia da Informação",
-        "sigla": "SEDEIT",
-        "idSecretaria": 4
+        "codigo": 1,
+        "nome": "Cerimonial",
+        "sigla": "Cerimonial",
+        "idSecretaria": 3
     },
     {
         "id": 50,
-        "codigo": 1,
-        "nome": "Procuradoria Geral do Município",
-        "sigla": "PGM",
-        "idSecretaria": 5
+        "codigo": 2,
+        "nome": "Gabinete do Vice-Prefeito",
+        "sigla": "Gabinete do Vice-Prefeito",
+        "idSecretaria": 3
     },
     {
         "id": 51,
-        "codigo": 1,
-        "nome": "Secretaria de Obras",
-        "sigla": "SecObras",
-        "idSecretaria": 6
+        "codigo": 3,
+        "nome": "Gabinete da SEGOV",
+        "sigla": "Gabinete da SEGOV",
+        "idSecretaria": 3
     },
     {
         "id": 52,
-        "codigo": 1,
-        "nome": "Secretaria Mobilidade Urbana",
-        "sigla": "SMU",
-        "idSecretaria": 7
+        "codigo": 4,
+        "nome": "Documentação",
+        "sigla": "Documentação",
+        "idSecretaria": 3
     },
     {
         "id": 53,
-        "codigo": 1,
-        "nome": "Secretaria de Comunicação",
-        "sigla": "SECOM",
-        "idSecretaria": 8
+        "codigo": 5,
+        "nome": "Departamento de Apio Administrativo e Organizacional Geral",
+        "sigla": "DAAOG",
+        "idSecretaria": 3
     },
     {
         "id": 54,
-        "codigo": 1,
-        "nome": "Secretaria de Segurança Cidadã",
-        "sigla": "SSC",
-        "idSecretaria": 9
+        "codigo": 6,
+        "nome": "Assessoria do Prefeito",
+        "sigla": "Assessoriado Prefeito",
+        "idSecretaria": 3
     },
     {
         "id": 55,
-        "codigo": 1,
-        "nome": "secretaria de Gerência Urbana",
-        "sigla": "SGU",
-        "idSecretaria": 10
+        "codigo": 7,
+        "nome": "Recepção",
+        "sigla": "Recepção",
+        "idSecretaria": 3
     },
     {
         "id": 56,
-        "codigo": 1,
-        "nome": "Secretaria de Patrimônio, Cultura e Turismo",
-        "sigla": "SEPACTUR",
-        "idSecretaria": 11
+        "codigo": 8,
+        "nome": "Almoxarifado",
+        "sigla": "Almoxarifado",
+        "idSecretaria": 3
     },
     {
         "id": 57,
-        "codigo": 1,
-        "nome": "Secretaria de Educação",
-        "sigla": "SEDUC",
-        "idSecretaria": 12
+        "codigo": 9,
+        "nome": "Protocolo",
+        "sigla": "Protocolo",
+        "idSecretaria": 3
     },
     {
         "id": 58,
-        "codigo": 1,
-        "nome": "Secretaria de Meio Ambiente Planejamento Urbano",
-        "sigla": "SEMAPU",
-        "idSecretaria": 13
+        "codigo": 10,
+        "nome": "Assessoria Especial 1",
+        "sigla": "Assessoria Especial 1",
+        "idSecretaria": 3
     },
     {
         "id": 59,
-        "codigo": 1,
-        "nome": "Controladoria Geral do Município",
-        "sigla": "CGM",
-        "idSecretaria": 15
+        "codigo": 11,
+        "nome": "Assessoria Especial 2",
+        "sigla": "Assessoria Especial 2",
+        "idSecretaria": 3
     },
     {
         "id": 60,
-        "codigo": 1,
-        "nome": "Secretaria de Planejamento e Gestão Estratégica",
-        "sigla": "SEPLAG",
-        "idSecretaria": 16
+        "codigo": 12,
+        "nome": "Correios",
+        "sigla": "Correios",
+        "idSecretaria": 3
     },
     {
         "id": 61,
-        "codigo": 2,
-        "nome": "Assesoria",
-        "sigla": "Assesoria",
-        "idSecretaria": 10
+        "codigo": 13,
+        "nome": "Articulação",
+        "sigla": "Articulação",
+        "idSecretaria": 3
     },
     {
         "id": 62,
-        "codigo": 3,
-        "nome": "SEMU(Licitações)",
-        "sigla": "SEMU(Licitação)",
-        "idSecretaria": 10
+        "codigo": 14,
+        "nome": "Ouvidoria",
+        "sigla": "Ouvidoria",
+        "idSecretaria": 3
     },
     {
         "id": 63,
-        "codigo": 4,
-        "nome": "Drenagem",
-        "sigla": "Drenagem",
-        "idSecretaria": 10
+        "codigo": 15,
+        "nome": "Gabinete do Prefeito",
+        "sigla": "Gabinete do Prefeito",
+        "idSecretaria": 3
     },
     {
         "id": 64,
-        "codigo": 5,
-        "nome": "DGLU(Contratos)",
-        "sigla": "DGLU(Contratos)",
-        "idSecretaria": 10
+        "codigo": 16,
+        "nome": "Controladoria",
+        "sigla": "Controladoria",
+        "idSecretaria": 3
     },
     {
         "id": 65,
-        "codigo": 6,
-        "nome": "DLGU(Monitoramento)",
-        "sigla": "DLGU(Monitoramento)",
-        "idSecretaria": 10
+        "codigo": 1,
+        "nome": "Gabinete",
+        "sigla": "Gabinete",
+        "idSecretaria": 4
     },
     {
         "id": 66,
+        "codigo": 2,
+        "nome": "Tecnologia da Informação",
+        "sigla": "TI",
+        "idSecretaria": 4
+    },
+    {
+        "id": 67,
+        "codigo": 3,
+        "nome": "Diretoria de Compras e Mercados",
+        "sigla": "DCM",
+        "idSecretaria": 4
+    },
+    {
+        "id": 68,
+        "codigo": 4,
+        "nome": "Diretoria Administrativa Financeira",
+        "sigla": "DAF",
+        "idSecretaria": 4
+    },
+    {
+        "id": 69,
+        "codigo": 1,
+        "nome": "Administrativo/Financeiro",
+        "sigla": "ADM",
+        "idSecretaria": 8
+    },
+    {
+        "id": 70,
+        "codigo": 2,
+        "nome": "Gabinete do Secretário",
+        "sigla": "Gab. Sec.",
+        "idSecretaria": 8
+    },
+    {
+        "id": 71,
+        "codigo": 3,
+        "nome": "Gabinete do Secretário Executivo",
+        "sigla": "Gab. Sec. Exec.",
+        "idSecretaria": 8
+    },
+    {
+        "id": 72,
+        "codigo": 4,
+        "nome": "Redação e Jornalismo",
+        "sigla": "RJ",
+        "idSecretaria": 8
+    },
+    {
+        "id": 73,
+        "codigo": 5,
+        "nome": "Redes Sociais",
+        "sigla": "RS",
+        "idSecretaria": 8
+    },
+    {
+        "id": 74,
+        "codigo": 6,
+        "nome": "Publicidade",
+        "sigla": "PB",
+        "idSecretaria": 8
+    },
+    {
+        "id": 75,
+        "codigo": 1,
+        "nome": "DCUA",
+        "sigla": "DCUA",
+        "idSecretaria": 5
+    },
+    {
+        "id": 76,
+        "codigo": 2,
+        "nome": "DCTP/DCAR",
+        "sigla": "DCTP/DCAR",
+        "idSecretaria": 5
+    },
+    {
+        "id": 77,
+        "codigo": 3,
+        "nome": "Procuradoria Consultativa",
+        "sigla": "PC",
+        "idSecretaria": 5
+    },
+    {
+        "id": 78,
+        "codigo": 4,
+        "nome": "Distribuição",
+        "sigla": "Distribuição",
+        "idSecretaria": 5
+    },
+    {
+        "id": 79,
+        "codigo": 5,
+        "nome": "UPPAD",
+        "sigla": "UPPAD",
+        "idSecretaria": 5
+    },
+    {
+        "id": 80,
+        "codigo": 6,
+        "nome": "Procuradoria-Chefe da Consultiva",
+        "sigla": "Procuradoria-Chefe da Consultiva",
+        "idSecretaria": 5
+    },
+    {
+        "id": 81,
         "codigo": 7,
-        "nome": "DGLU(Diretor)",
-        "sigla": "DGLU(Diretor)",
+        "nome": "Subprocuradoria Geral do Município",
+        "sigla": "Subprocuradoria Geral do Município",
+        "idSecretaria": 5
+    },
+    {
+        "id": 82,
+        "codigo": 8,
+        "nome": "Assessoria Especial",
+        "sigla": "AE",
+        "idSecretaria": 5
+    },
+    {
+        "id": 83,
+        "codigo": 9,
+        "nome": "Gabinete Extrajudicial",
+        "sigla": "GE",
+        "idSecretaria": 5
+    },
+    {
+        "id": 84,
+        "codigo": 10,
+        "nome": "Gabinete do Procurador Geral do Município",
+        "sigla": "Gabinete do Procurador Geral do Município",
+        "idSecretaria": 5
+    },
+    {
+        "id": 85,
+        "codigo": 11,
+        "nome": "Procuradoria do Executivo Fiscal",
+        "sigla": "PEF",
+        "idSecretaria": 5
+    },
+    {
+        "id": 0,
+        "codigo": 0,
+        "nome": "",
+        "sigla": "",
+        "idSecretaria": 6
+    },
+    {
+        "id": 0,
+        "codigo": 0,
+        "nome": "",
+        "sigla": "",
+        "idSecretaria": 6
+    },
+    {
+        "id": 0,
+        "codigo": 0,
+        "nome": "",
+        "sigla": "",
+        "idSecretaria": 6
+    },
+    {
+        "id": 0,
+        "codigo": 0,
+        "nome": "",
+        "sigla": "",
+        "idSecretaria": 6
+    },
+    {
+        "id": 0,
+        "codigo": 0,
+        "nome": "",
+        "sigla": "",
+        "idSecretaria": 6
+    },
+    {
+        "id": 0,
+        "codigo": 0,
+        "nome": "",
+        "sigla": "",
+        "idSecretaria": 6
+    },
+    {
+        "id": 0,
+        "codigo": 0,
+        "nome": "",
+        "sigla": "",
+        "idSecretaria": 6
+    },
+    {
+        "id": 0,
+        "codigo": 0,
+        "nome": "",
+        "sigla": "",
+        "idSecretaria": 6
+    },
+    {
+        "id": 0,
+        "codigo": 0,
+        "nome": "",
+        "sigla": "",
+        "idSecretaria": 6
+    },
+    {
+        "id": 0,
+        "codigo": 0,
+        "nome": "",
+        "sigla": "",
+        "idSecretaria": 6
+    },
+    {
+        "id": 0,
+        "codigo": 0,
+        "nome": "",
+        "sigla": "",
+        "idSecretaria": 6
+    },
+    {
+        "id": 0,
+        "codigo": 0,
+        "nome": "",
+        "sigla": "",
+        "idSecretaria": 6
+    },
+    {
+        "id": 0,
+        "codigo": 0,
+        "nome": "",
+        "sigla": "",
+        "idSecretaria": 6
+    },
+    {
+        "id": 0,
+        "codigo": 0,
+        "nome": "",
+        "sigla": "",
+        "idSecretaria": 6
+    },
+    {
+        "id": 0,
+        "codigo": 0,
+        "nome": "",
+        "sigla": "",
+        "idSecretaria": 6
+    },
+    {
+        "id": 0,
+        "codigo": 0,
+        "nome": "",
+        "sigla": "",
+        "idSecretaria": 6
+    },
+    {
+        "id": 0,
+        "codigo": 0,
+        "nome": "",
+        "sigla": "",
+        "idSecretaria": 6
+    },
+    {
+        "id": 0,
+        "codigo": 0,
+        "nome": "",
+        "sigla": "",
+        "idSecretaria": 6
+    },
+    {
+        "id": 0,
+        "codigo": 0,
+        "nome": "",
+        "sigla": "",
+        "idSecretaria": 6
+    },
+    {
+        "id": 0,
+        "codigo": 0,
+        "nome": "",
+        "sigla": "",
+        "idSecretaria": 6
+    },
+    {
+        "id": 0,
+        "codigo": 0,
+        "nome": "",
+        "sigla": "",
+        "idSecretaria": 6
+    },
+    {
+        "id": 0,
+        "codigo": 0,
+        "nome": "",
+        "sigla": "",
+        "idSecretaria": 6
+    },
+    {
+        "id": 0,
+        "codigo": 0,
+        "nome": "",
+        "sigla": "",
+        "idSecretaria": 10
+    },
+    {
+        "id": 0,
+        "codigo": 0,
+        "nome": "",
+        "sigla": "",
+        "idSecretaria": 10
+    },
+    {
+        "id": 0,
+        "codigo": 0,
+        "nome": "",
+        "sigla": "",
+        "idSecretaria": 10
+    },
+    {
+        "id": 0,
+        "codigo": 0,
+        "nome": "",
+        "sigla": "",
+        "idSecretaria": 10
+    },
+    {
+        "id": 0,
+        "codigo": 0,
+        "nome": "",
+        "sigla": "",
+        "idSecretaria": 10
+    },
+    {
+        "id": 0,
+        "codigo": 0,
+        "nome": "",
+        "sigla": "",
+        "idSecretaria": 10
+    },
+    {
+        "id": 0,
+        "codigo": 0,
+        "nome": "",
+        "sigla": "",
+        "idSecretaria": 10
+    },
+    {
+        "id": 0,
+        "codigo": 0,
+        "nome": "",
+        "sigla": "",
+        "idSecretaria": 10
+    },
+    {
+        "id": 0,
+        "codigo": 0,
+        "nome": "",
+        "sigla": "",
+        "idSecretaria": 10
+    },
+    {
+        "id": 0,
+        "codigo": 0,
+        "nome": "",
+        "sigla": "",
         "idSecretaria": 10
     }
 ]
