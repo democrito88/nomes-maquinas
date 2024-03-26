@@ -1,9 +1,9 @@
 import { Col, Container, Row, Table } from "react-bootstrap";
 import LinhaTabela from "./../LinhaTabela";
 
-export default function TabelaComputadores({computadores, funcionarios}){
+export default function TabelaComputadores({ computadores, funcionarios }) {
     return (
-        computadores.length > 0 ?  
+        computadores.length > 0 ?
             <Container direction="column" className="justify-content-center">
                 <Row className="justify-content-center">
                     <Col className="mx-auto">
@@ -28,13 +28,13 @@ export default function TabelaComputadores({computadores, funcionarios}){
                                 </tr>
                             </thead>
                             <tbody>
-                                {computadores.map( computador => <LinhaTabela key={computador.id} computador={computador} funcionario={funcionarios[0]} />)}
+                                {computadores.map(computador => <LinhaTabela key={computador.id} computador={computador} funcionario={funcionarios[0]} />)}
                             </tbody>
                         </Table>
                     </Col>
                 </Row>
             </Container>
-            : 
+            :
             <></>
     );
 }
