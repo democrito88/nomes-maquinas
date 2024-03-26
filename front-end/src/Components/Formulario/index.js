@@ -148,7 +148,7 @@ export default function Formulario({todosSetores, serverHost, serverPort, secret
                 <InputIPv4 />
                 <Form.Control name="sn" placeholder="número serial da máquina" />
                 <Form.Control
-                    name="tecladop_sn"
+                    name="teclado_sn"
                     placeholder="número serial do teclado"
                 />
                 <Form.Control name="mouse_sn" placeholder="número serial do mouse" />

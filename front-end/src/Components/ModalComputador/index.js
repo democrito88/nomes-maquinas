@@ -29,7 +29,7 @@ function ModalComputador({handleClose, show, computador, funcionario}) {
               funcionario.nome ? 
               <div>
                 <hr />
-                <h4>Detalhes do funcionáriuo responsável</h4>
+                <h4>Detalhes do funcionário responsável</h4>
                 <ul>
                   <li>{funcionario.nome}</li>
                   <li>{funcionario.matricula}</li>
