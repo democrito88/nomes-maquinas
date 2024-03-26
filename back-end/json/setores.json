@@ -483,48 +483,6 @@
         "idSecretaria": 4
     },
     {
-        "id": 69,
-        "codigo": 1,
-        "nome": "Administrativo/Financeiro",
-        "sigla": "ADM",
-        "idSecretaria": 8
-    },
-    {
-        "id": 70,
-        "codigo": 2,
-        "nome": "Gabinete do Secretário",
-        "sigla": "Gab. Sec.",
-        "idSecretaria": 8
-    },
-    {
-        "id": 71,
-        "codigo": 3,
-        "nome": "Gabinete do Secretário Executivo",
-        "sigla": "Gab. Sec. Exec.",
-        "idSecretaria": 8
-    },
-    {
-        "id": 72,
-        "codigo": 4,
-        "nome": "Redação e Jornalismo",
-        "sigla": "RJ",
-        "idSecretaria": 8
-    },
-    {
-        "id": 73,
-        "codigo": 5,
-        "nome": "Redes Sociais",
-        "sigla": "RS",
-        "idSecretaria": 8
-    },
-    {
-        "id": 74,
-        "codigo": 6,
-        "nome": "Publicidade",
-        "sigla": "PB",
-        "idSecretaria": 8
-    },
-    {
         "id": 75,
         "codigo": 1,
         "nome": "DCUA",
@@ -602,8 +560,22 @@
         "idSecretaria": 5
     },
     {
-        "id": 0,
-        "codigo": 0,
+        "id": 86,
+        "codigo": 1,
+        "nome": "",
+        "sigla": "",
+        "idSecretaria": 6
+    },
+    {
+        "id": 87,
+        "codigo": 2,
+        "nome": "",
+        "sigla": "",
+        "idSecretaria": 6
+    },
+    {
+        "id": 88,
+        "codigo": 3,
         "nome": "",
         "sigla": "",
         "idSecretaria": 6
@@ -742,18 +714,46 @@
         "idSecretaria": 6
     },
     {
-        "id": 0,
-        "codigo": 0,
-        "nome": "",
-        "sigla": "",
-        "idSecretaria": 6
+        "id": 108,
+        "codigo": 1,
+        "nome": "Administrativo/Financeiro",
+        "sigla": "ADM",
+        "idSecretaria": 8
     },
     {
-        "id": 0,
-        "codigo": 0,
-        "nome": "",
-        "sigla": "",
-        "idSecretaria": 6
+        "id": 109,
+        "codigo": 2,
+        "nome": "Gabinete do Secretário",
+        "sigla": "Gab. Sec.",
+        "idSecretaria": 8
+    },
+    {
+        "id": 110,
+        "codigo": 3,
+        "nome": "Gabinete do Secretário Executivo",
+        "sigla": "Gab. Sec. Exec.",
+        "idSecretaria": 8
+    },
+    {
+        "id": 111,
+        "codigo": 4,
+        "nome": "Redação e Jornalismo",
+        "sigla": "RJ",
+        "idSecretaria": 8
+    },
+    {
+        "id": 112,
+        "codigo": 5,
+        "nome": "Redes Sociais",
+        "sigla": "RS",
+        "idSecretaria": 8
+    },
+    {
+        "id": 113,
+        "codigo": 6,
+        "nome": "Publicidade",
+        "sigla": "PB",
+        "idSecretaria": 8
     },
     {
         "id": 0,
