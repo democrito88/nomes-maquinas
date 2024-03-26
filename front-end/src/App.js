@@ -18,28 +18,32 @@ function App() {
     axios
       .get(`http://${serverHost}:${serverPort}/`)
       .then((resposta) => {
-        if (resposta.data.length > 0) {
-          const newComputer = {
-            id: resposta.data[0].id,
-            nome: resposta.data[0].nome,
-            nomeSecretaria: resposta.data[0].nomeSecretaria,
-            nomeSetor: resposta.data[0].nomeSetor,
-            classe: resposta.data[0].classe,
-            numero: resposta.data[0].numero,
-            ip: resposta.data[0].ip,
-            mac: resposta.data[0].mac,
-            sn: resposta.data[0].sn,
-            mouse_sn: resposta.data[0].mouse_sn,
-            teclado_sn: resposta.data[0].teclado_sn,
-            monitor_sn: resposta.data[0].monitor_sn
-          };
-          setComputadores((arrayAnterior) => [...arrayAnterior, newComputer]);
-
-          const newFuncionario = {
-            nome: resposta.data[0].responsavel
-          };
-
-          setFuncionarios(arrayAnterior => [...arrayAnterior, newFuncionario]);
+        if(resposta.data.length > 1){
+          setComputadores(resposta.data);
+        }else{
+          if (resposta.data.length > 0) {
+            const newComputer = {
+              id: resposta.data[0].id,
+              nome: resposta.data[0].nome,
+              nomeSecretaria: resposta.data[0].nomeSecretaria,
+              nomeSetor: resposta.data[0].nomeSetor,
+              classe: resposta.data[0].classe,
+              numero: resposta.data[0].numero,
+              ip: resposta.data[0].ip,
+              mac: resposta.data[0].mac,
+              sn: resposta.data[0].sn,
+              mouse_sn: resposta.data[0].mouse_sn,
+              teclado_sn: resposta.data[0].teclado_sn,
+              monitor_sn: resposta.data[0].monitor_sn
+            };
+            setComputadores((arrayAnterior) => [...arrayAnterior, newComputer]);
+  
+            const newFuncionario = {
+              nome: resposta.data[0].responsavel
+            };
+  
+            setFuncionarios(arrayAnterior => [...arrayAnterior, newFuncionario]);
+          }
         }
       })
       .catch((error) => console.error(error));
