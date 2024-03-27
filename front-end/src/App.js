@@ -13,40 +13,38 @@ function App() {
   const [funcionarios, setFuncionarios] = useState([]);
 
   useEffect(() => {
-
     axios
       .get(`http://${config.serverHost}:${config.serverPort}/`)
       .then((resposta) => {
-        if(resposta.data.length > 1){
-          setComputadores(resposta.data);
-        }else{
-          if (resposta.data.length > 0) {
+        if(resposta.data.length > 0 && resposta.data.length > computadores.length){
+          resposta.data.map(computador => {
             const newComputer = {
-              id: resposta.data[0].id,
-              nome: resposta.data[0].nome,
-              nomeSecretaria: resposta.data[0].nomeSecretaria,
-              nomeSetor: resposta.data[0].nomeSetor,
-              classe: resposta.data[0].classe,
-              numero: resposta.data[0].numero,
-              ip: resposta.data[0].ip,
-              mac: resposta.data[0].mac,
-              sn: resposta.data[0].sn,
-              mouse_sn: resposta.data[0].mouse_sn,
-              teclado_sn: resposta.data[0].teclado_sn,
-              monitor_sn: resposta.data[0].monitor_sn
+              id: computador.id,
+              nome: computador.nome,
+              nomeSecretaria: computador.nomeSecretaria,
+              nomeSetor: computador.nomeSetor,
+              classe: computador.classe,
+              numero: computador.numero,
+              ip: computador.ip,
+              mac: computador.mac,
+              sn: computador.sn,
+              mouse_sn: computador.mouse_sn,
+              teclado_sn: computador.teclado_sn,
+              monitor_sn: computador.monitor_sn
             };
             setComputadores((arrayAnterior) => [...arrayAnterior, newComputer]);
   
             const newFuncionario = {
-              nome: resposta.data[0].responsavel
+              nome: computador.responsavel
             };
   
             setFuncionarios(arrayAnterior => [...arrayAnterior, newFuncionario]);
-          }
+          });
         }
       })
       .catch((error) => console.error(error));
-  }, [])
+  }, []);
+
   return (
     <BrowserRouter>
       <NavBar />

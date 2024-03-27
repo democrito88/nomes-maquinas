@@ -7,7 +7,12 @@ export default function ListaDispositivos({ computadores, funcionarios, setCompu
   const [computadoresAExibir, setComputadoresAExibir] = useState(computadores);
   
   const handleBusca = (e) => {
-     setComputadoresAExibir(computadores.filter(computador => computador.nome === e.target));
+     setComputadoresAExibir(
+      computadores.filter(
+        computador =>
+          computador.nome.includes(e.target.value)
+          )
+      );
   }
 
   return (
@@ -15,13 +20,13 @@ export default function ListaDispositivos({ computadores, funcionarios, setCompu
       <Form>
         <Form.Control type="text" placeholder="busque pelo nome" onInput={handleBusca}/>
       </Form>
-      {computadores.length > 0 ? (
+      {computadoresAExibir.length > 0 ? (
         <TabelaComputadores
           computadores={computadores}
           funcionarios={funcionarios}
         />
       ) : (
-        <p>Ainda não foi cadastrado nenhum dispositivo</p>
+        <p>Nenhum dispositivo foi encontrado.</p>
       )}
     </Container>
   );

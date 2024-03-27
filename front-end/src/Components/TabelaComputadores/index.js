@@ -28,7 +28,7 @@ export default function TabelaComputadores({ computadores, funcionarios }) {
                                 </tr>
                             </thead>
                             <tbody>
-                                {computadores.map(computador => <LinhaTabela key={computador.id} computador={computador} funcionario={funcionarios[0]} />)}
+                                {computadores.map(computador => <LinhaTabela key={Math.floor(Math.random() * 100)} computador={computador} funcionario={funcionarios[0]} />)}
                             </tbody>
                         </Table>
                     </Col>
