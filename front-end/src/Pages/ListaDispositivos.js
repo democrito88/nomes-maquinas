@@ -1,6 +1,6 @@
-import { Container, Form} from "react-bootstrap";
+import { Container} from "react-bootstrap";
 import TabelaComputadores from "../Components/TabelaComputadores";
-import { Component, useState } from "react";
+import { useState } from "react";
 import Busca from "../Components/Busca/Index";
 
 
@@ -8,17 +8,11 @@ export default function ListaDispositivos({ computadores, funcionarios, setCompu
   const [computadoresAExibir, setComputadoresAExibir] = useState(computadores);
   
   const handleBusca = (e) => {
-     setComputadoresAExibir(
-      computadores.filter(
-        computador =>
-          computador.nome.includes(e.target.value)
-          )
-      );
+     setComputadoresAExibir(computadores.filter(computador => computador.nome.includes(e.target.value)));
   }
 
   return (
     <Container>
-    
       <Busca handleBusca={handleBusca}/>
       {computadoresAExibir.length > 0 ? (
         <TabelaComputadores

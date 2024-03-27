@@ -32,7 +32,7 @@ function App() {
               teclado_sn: computador.teclado_sn,
               monitor_sn: computador.monitor_sn
             };
-            setComputadores((arrayAnterior) => [...arrayAnterior, newComputer]);
+            setComputadores(arrayAnterior => [...arrayAnterior, newComputer]);
   
             const newFuncionario = {
               nome: computador.responsavel
