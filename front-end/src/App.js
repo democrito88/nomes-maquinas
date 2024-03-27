@@ -39,11 +39,12 @@ function App() {
             };
   
             setFuncionarios(arrayAnterior => [...arrayAnterior, newFuncionario]);
+            return 0;
           });
         }
       })
       .catch((error) => console.error(error));
-  }, []);
+  }, [computadores.length]);
 
   return (
     <BrowserRouter>
