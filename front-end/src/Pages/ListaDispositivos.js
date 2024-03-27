@@ -1,6 +1,7 @@
 import { Container, Form} from "react-bootstrap";
 import TabelaComputadores from "../Components/TabelaComputadores";
-import { useState } from "react";
+import { Component, useState } from "react";
+import Busca from "../Components/Busca/Index";
 
 
 export default function ListaDispositivos({ computadores, funcionarios, setComputadores, setFuncionarios }) {
@@ -17,9 +18,8 @@ export default function ListaDispositivos({ computadores, funcionarios, setCompu
 
   return (
     <Container>
-      <Form>
-        <Form.Control type="text" placeholder="busque pelo nome" onInput={handleBusca}/>
-      </Form>
+    
+      <Busca handleBusca={handleBusca}/>
       {computadoresAExibir.length > 0 ? (
         <TabelaComputadores
           computadores={computadores}
