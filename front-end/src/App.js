@@ -6,17 +6,16 @@ import QRScanner from "./Pages/QRScanner";
 import NavBar from "./Components/NavBar";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import config from "./config";
 
 function App() {
   const [computadores, setComputadores] = useState([]);
   const [funcionarios, setFuncionarios] = useState([]);
-  const serverHost = "192.168.11.131";
-  const serverPort = 3001;
 
   useEffect(() => {
 
     axios
-      .get(`http://${serverHost}:${serverPort}/`)
+      .get(`http://${config.serverHost}:${config.serverPort}/`)
       .then((resposta) => {
         if(resposta.data.length > 1){
           setComputadores(resposta.data);
