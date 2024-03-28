@@ -4,7 +4,7 @@ import { useState } from "react";
 import Busca from "../Components/Busca/Index";
 
 
-export default function ListaDispositivos({ computadores, funcionarios, setComputadores, setFuncionarios }) {
+export default function ListaDispositivos({ computadores, funcionarios }) {
   const [computadoresAExibir, setComputadoresAExibir] = useState(computadores);
   
   const handleBusca = (e) => {

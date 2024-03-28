@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ModalComputador from "../ModalComputador";
+import ModalComputador from "./../../ModalComputador";
 
 export default function LinhaTabela({computador, funcionario}){
     const [show, setShow] = useState(false);

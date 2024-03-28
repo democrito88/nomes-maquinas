@@ -1,14 +1,13 @@
 import Formulario from "../Components/Formulario";
 import { useEffect, useState } from "react";
+import config from "./../config.js";
 
 export default function Principal({setComputadores, setFuncionarios}) {
     const [secretarias, setSecretarias] = useState([]);
     const [todosSetores, setTodosSetores] = useState([]);
-    const serverHost = "192.168.11.131";
-    const serverPort = 3001;
 
     useEffect(() => {
-        fetch(`http://${serverHost}:${serverPort}/json/secretarias.json`)
+        fetch(`http://${config.serverHost}:${config.serverPort}/json/secretarias.json`)
             .then((resposta) => resposta.json())
             .then((dados) => setSecretarias(JSON.parse(dados)))
             .catch(error => {
@@ -22,7 +21,7 @@ export default function Principal({setComputadores, setFuncionarios}) {
                 ]);
             });
 
-        fetch(`http://${serverHost}:${serverPort}/json/setores.json`)
+        fetch(`http://${config.serverHost}:${config.serverPort}/json/setores.json`)
             .then((resposta) => resposta.json())
             .then((dados) => setTodosSetores(JSON.parse(dados)))
             .catch(error => {
@@ -42,8 +41,8 @@ export default function Principal({setComputadores, setFuncionarios}) {
         <main>
             <Formulario
                 todosSetores={todosSetores}
-                serverHost={serverHost}
-                serverPort={serverPort}
+                serverHost={config.serverHost}
+                serverPort={config.serverPort}
                 secretarias={secretarias}
                 setComputadores={setComputadores}
                 setFuncionarios={setFuncionarios}

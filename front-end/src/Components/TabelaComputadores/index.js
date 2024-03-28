@@ -1,5 +1,5 @@
 import { Col, Container, Row, Table } from "react-bootstrap";
-import LinhaTabela from "./../LinhaTabela";
+import LinhaTabela from "./LinhaTabela";
 
 export default function TabelaComputadores({ computadores, funcionarios }) {
     return (
