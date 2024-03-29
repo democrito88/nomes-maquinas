@@ -6,7 +6,7 @@ import CopyToClipboardButton from "../CopyToClipboardButton";
 import { useState } from "react";
 import axios from "axios";
 
-export default function Formulario({todosSetores, serverHost, serverPort, secretarias, setComputadores, setFuncionarios}) {
+export default function Formulario({todosSetores, serverHost, serverPort, secretarias}) {
     const [setores, setSetores] = useState([]);
     const [secretariaSelecionada, setSecretariaSelecionada] = useState(1);
     const [setorSelecionado, setSetorSelecionado] = useState(1);
@@ -61,7 +61,7 @@ export default function Formulario({todosSetores, serverHost, serverPort, secret
                 linkTermo: formData.get("linkTermo"),
             })
             .then((data) => {
-                const newComputer = {
+                /*const newComputer = {
                     id: data.data[0].id,
                     nome: data.data[0].nome,
                     nomeSecretaria: data.data[0].nomeSecretaria,
@@ -74,15 +74,15 @@ export default function Formulario({todosSetores, serverHost, serverPort, secret
                     mouse_sn: data.data[0].mouse_sn,
                     teclado_sn: data.data[0].teclado_sn,
                     monitor_sn: data.data[0].monitor_sn
-                };
+                };*/
 
                 console.log(data);
-                const newFuncionario = {
+                /*const newFuncionario = {
                     nome: data.data[0].responsavel,
-                };
+                };*/
 
-                setComputadores((arrayAnterior) => [...arrayAnterior, newComputer]);
-                setFuncionarios((arrayAnterior) => [...arrayAnterior, newFuncionario]);
+                //setComputadores((arrayAnterior) => [...arrayAnterior, newComputer]);
+                //setFuncionarios((arrayAnterior) => [...arrayAnterior, newFuncionario]);
                 document
                     .querySelectorAll("input")
                     .forEach((input) => (input.value = ""));

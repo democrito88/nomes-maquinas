@@ -1,0 +1,9 @@
+.form-busca{
+    display: flex;
+    justify-content: flex-end;
+    padding: 2em 0;
+}
+
+.inputgroup-busca{
+    width: 50%;
+}
