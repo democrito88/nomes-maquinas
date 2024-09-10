@@ -2,7 +2,7 @@ import { Container} from "react-bootstrap";
 import TabelaComputadores from "../Components/TabelaComputadores";
 import { useEffect, useState } from "react";
 import Busca from "../Components/Busca/Index";
-import config from "../config";
+import config from "./../config.json";
 import axios from "axios";
 
 export default function ListaDispositivos() {
@@ -12,12 +12,13 @@ export default function ListaDispositivos() {
 
   useEffect(() => {
     axios
-      .get(`http://${config.serverHost}:${config.serverPort}/`)
+      .get(`http://${config.serverHost}:${config.serverPort}/dispositivos`)
       .then((resposta) => {
-        if(resposta.data.length > 0 && resposta.data.length > computadores.length){
-          setComputadores([]);
-
-          resposta.data.map(computador => {
+        if (resposta.data.length > 0 && resposta.data.length > computadores.length) {
+          const novosComputadores = []; // Temporary array to store new computers
+          const novosFuncionarios = []; // Temporary array to store new employees
+          console.log(resposta);
+          resposta.data.forEach(computador => {
             const newComputer = {
               id: computador.id,
               nome: computador.nome,
@@ -33,28 +34,28 @@ export default function ListaDispositivos() {
               monitor_sn: computador.monitor_sn
             };
             
-            if(computadores.filter(comp => comp.id === newComputer.id).length === 0){
-              setComputadores(arrayAnterior => [...arrayAnterior, newComputer]);
+            if (!computadores.some(comp => comp.id === newComputer.id)) {
+              novosComputadores.push(newComputer);
             }
-            
-            const newFuncionario = {
-              nome: computador.responsavel
-            };
   
-            setFuncionarios(arrayAnterior => [...arrayAnterior, newFuncionario]);
-            return 0;
+            const newFuncionario = { nome: computador.responsavel };
+            novosFuncionarios.push(newFuncionario);
           });
+
+          setComputadores([...computadores, ...novosComputadores]); // Update state once
+          setFuncionarios([...funcionarios, ...novosFuncionarios]); // Update state once
         }
       })
       .catch((error) => console.error(error));
-  }, []);
+  }, [computadores, funcionarios]); // Add dependencies to useEffect
+  
   
   const handleBusca = (e) => {
     if(e.target.value === ""){
       setComputadoresAExibir(computadores);
       return;
     }
-
+    console.log(e.target.value);
     setComputadoresAExibir(() => computadores.filter(computador => computador.nome.includes(e.target.value)));
   }
 
@@ -67,6 +68,12 @@ export default function ListaDispositivos() {
           funcionarios={funcionarios}
         />
       ) : (
+        computadores.length > 0 ?
+        <TabelaComputadores
+          computadores={computadores}
+          funcionarios={funcionarios}
+        />
+        :
         <p>Nenhum dispositivo foi encontrado.</p>
       )}
     </Container>

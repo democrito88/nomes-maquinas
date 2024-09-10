@@ -1,6 +1,6 @@
 import Formulario from "../Components/Formulario";
 import { useEffect, useState } from "react";
-import config from "./../config.js";
+import config from "./../config.json";
 
 export default function Principal({setComputadores, setFuncionarios}) {
     const [secretarias, setSecretarias] = useState([]);
@@ -9,7 +9,7 @@ export default function Principal({setComputadores, setFuncionarios}) {
     useEffect(() => {
         fetch(`http://${config.serverHost}:${config.serverPort}/json/secretarias.json`)
             .then((resposta) => resposta.json())
-            .then((dados) => setSecretarias(JSON.parse(dados)))
+            .then((dados) => setSecretarias(dados))
             .catch(error => {
                 console.error(error);
                 setSecretarias([
@@ -23,7 +23,7 @@ export default function Principal({setComputadores, setFuncionarios}) {
 
         fetch(`http://${config.serverHost}:${config.serverPort}/json/setores.json`)
             .then((resposta) => resposta.json())
-            .then((dados) => setTodosSetores(JSON.parse(dados)))
+            .then((dados) => setTodosSetores(dados))
             .catch(error => {
                 console.error(error);
                 setTodosSetores([

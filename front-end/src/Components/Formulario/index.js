@@ -24,7 +24,11 @@ export default function Formulario({todosSetores, serverHost, serverPort, secret
     };
 
     const handleSetor = (e) => {
-        setSetorSelecionado(e.target.value);
+        for(const option of e.target.children){
+            if(option.selected){
+                setSetorSelecionado(option.getAttribute("data-id"));
+            }
+        }
     };
 
     const handleClasse = (e) => {
@@ -116,7 +120,7 @@ export default function Formulario({todosSetores, serverHost, serverPort, secret
                 <Form.Select name="setor_id" onChange={handleSetor}>
                     {setores
                         ? setores.map((setor) => (
-                            <option value={setor.codigo} key={setor.id}>
+                            <option value={setor.id} key={setor.codigo} data-id={setor.codigo}>
                                 {setor.sigla +
                                     (setor.sigla === setor.nome ? `` : ` - ${setor.nome}`)}
                             </option>

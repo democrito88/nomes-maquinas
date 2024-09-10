@@ -8,7 +8,6 @@ function NavBar() {
         <Nav className="me-auto">
           <Nav.Link href="/">Home</Nav.Link>
           <Nav.Link href="/lista">Lista dos computadores</Nav.Link>
-          <Nav.Link href="/scan">Scan QR Code</Nav.Link>
         </Nav>
       </Container>
     </Navbar>
